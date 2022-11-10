@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
@@ -10,19 +11,19 @@
 <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
 
 <!--Material icons-->
-<link rel="stylesheet" href="../common/library/material-design-iconic-font/css/material-design-iconic-font.min.css">
+<link rel="stylesheet" href="{% static 'library/material-design-iconic-font/css/material-design-iconic-font.min.css' %}">
 
 <!--bootstrap-->
-<link rel="stylesheet" href="../common/library/bootstrap-4.4.1-dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'library/bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
 
 <!--select-->
-<link rel="stylesheet" href="../common/library/select2-4.0.13/dist/css/select2.min.css">
+<link rel="stylesheet" href="{% static 'library/select2-4.0.13/dist/css/select2.min.css' %}">
 
 <!--datepicker-->
-<link rel="stylesheet" href="../common/library/air-datepicker-master/dist/css/datepicker.min.css">
+<link rel="stylesheet" href="{% static 'library/air-datepicker-master/dist/css/datepicker.min.css' %}">
 
 <!--Additional styling-->
-<link rel="stylesheet" href="../common/component.css">
+<link rel="stylesheet" href="{% static 'component.css' %}">
 </head>
 
 <body>
@@ -51,7 +52,7 @@
           <!--step 1 body-->
           <section> 
             <!--header logo-->
-            <div class="brand-wrapper"> <img src="../common/images/logo.svg" alt="logo" class="logo"> </div>
+            <div class="brand-wrapper"> <img src="{% static 'images/logo.svg' %}" alt="logo" class="logo"> </div>
             <div class="row">
               <div class="col-xl-6"> 
                 <!--heading step 1-->
@@ -82,7 +83,7 @@
               </div>
               
               <!--image step 1-->
-              <div class="col-xl-6 d-none d-xl-block"> <img src="../common/images/step1.svg" alt="appointment" class="img-fluid"> </div>
+              <div class="col-xl-6 d-none d-xl-block"> <img src="{% static 'images/step1.svg' %}" alt="appointment" class="img-fluid"> </div>
             </div>
             
             <!--card footer step 1-->
@@ -102,7 +103,7 @@
 			
           <!--step 2 body-->
           <section>
-            <div class="brand-wrapper"> <img src="../common/images/logo.svg" alt="logo" class="logo"> </div>
+            <div class="brand-wrapper"> <img src="{% static 'images/logo.svg' %}" alt="logo" class="logo"> </div>
             <div class="row mb-3">
               <div class="col-md-3 section-heading">Select Your Service</div>
               <div class="col-md-9 errorblock"></div>
@@ -150,7 +151,7 @@
 			
           <!--step 3 body-->
           <section>
-            <div class="brand-wrapper"> <img src="../common/images/logo.svg" alt="logo" class="logo"> </div>
+            <div class="brand-wrapper"> <img src="{% static 'images/logo.svg' %}" alt="logo" class="logo"> </div>
             <div class="row mb-3">
               <div class="col-md-3 section-heading">Mode of Payment</div>
               <div class="col-md-9 errorblock"></div>
@@ -183,7 +184,7 @@
                 <!--google pay fields-->
                 <div class="Google-Pay box">
                   <div class="row">
-                    <div class="col-md-4 mb-3 text-center"> <img src="../common/images/Uneekcc1.png" height="100px" alt="QR code for booking"> </div>
+                    <div class="col-md-4 mb-3 text-center"> <img src="{% static 'images/Uneekcc1.png' %}" height="100px" alt="QR code for booking"> </div>
                     <div class="col-md-8 form-group">
                       <label for="qrcode">Google Pay</label>
                       <input type="text" name="qrcode" id="qrcode" class="form-control" placeholder="Transaction ID">
@@ -208,7 +209,7 @@
 			
           <!--step 4 body-->
           <section>
-            <div class="brand-wrapper"> <img src="../common/images/logo.svg" alt="logo" class="logo"> </div>
+            <div class="brand-wrapper"> <img src="{% static 'images/logo.svg' %}" alt="logo" class="logo"> </div>
             <div class="row">
               <div class="col-xl-6"> 
                 
@@ -232,7 +233,7 @@
                   <br>
                 </div>
               </div>
-              <div class="col-xl-6 d-none d-xl-block"> <img src="../common/images/step4.svg" alt="booking" class="img-fluid"> </div>
+              <div class="col-xl-6 d-none d-xl-block"> <img src="{% static 'images/step4.svg' %}" alt="booking" class="img-fluid"> </div>
             </div>
             <p class="mb-0">We will contact you about the time slot on a particular day as per your availability.</p>
             <br>
@@ -251,31 +252,31 @@
 </main>
 
 <!--jquery library--> 
-<script src="../common/library/jquery3.5.1.min.js"></script> 
+<script src="{% static 'library/jquery3.5.1.min.js' %}"></script> 
 
 <!--validation library--> 
-<script src="../common/library/jquery-validation/dist/jquery.validate.min.js"></script> 
-<script src="../common/library/jquery-validation/dist/additional-methods.min.js"></script> 
+<script src="{% static 'library/jquery-validation/dist/jquery.validate.min.js' %}"></script> 
+<script src="{% static 'library/jquery-validation/dist/additional-methods.min.js' %}"></script> 
 
 <!--bootstrap library--> 
-<script src="../common/library/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script> 
+<script src="{% static 'library/bootstrap-4.4.1-dist/js/bootstrap.min.js' %}"></script> 
 	
 <!--steps library--> 
-<script src="../common/library/jquery.steps.js"></script> 
+<script src="{% static 'library/jquery.steps.js' %}"></script> 
 	
 <!--datepicker library--> 
-<script src="../common/library/air-datepicker-master/dist/js/datepicker.min.js"></script> 
-<script src="../common/library/air-datepicker-master/dist/js/i18n/datepicker.en.js"></script> 
+<script src="{% static 'library/air-datepicker-master/dist/js/datepicker.min.js' %}"></script> 
+<script src="{% static 'library/air-datepicker-master/dist/js/i18n/datepicker.en.js' %}"></script> 
 	
 <!--select library--> 
-<script src="../common/library/select2-4.0.13/dist/js/select2.min.js"></script> 
+<script src="{% static 'library/select2-4.0.13/dist/js/select2.min.js' %}"></script> 
 
 <!--library for cascading select--> 
-<script src="../common/library/knockout-min.js"></script> 
+<script src="{% static 'library/knockout-min.js' %}"></script> 
 	
 <!--custom JS-->
-<script src="mail-js.js"></script> 
-<script src="../common/main.js"></script>
+<script src="{% static 'mail-js.js' %}"></script> 
+<script src="{% static 'main.js' %}"></script>
 	
 </body>
 </html>
