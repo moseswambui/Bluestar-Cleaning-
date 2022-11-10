@@ -1,10 +1,11 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from Services.models import ServiceApplications
 
 class Bill(models.Model):
     STATUS_PENDING, STATUS_PAID, STATUS_REVERSED = ("PENDING", "PAID", "REVERSED")
     application_submission = models.ForeignKey(
-        "applications.ApplicationFormSubmission", related_name="bills", on_delete=models.PROTECT
+        ServiceApplications,blank=True, null=True, on_delete=models.PROTECT
     )
     amount = models.CharField(max_length=50, null=True, blank=True)
     amount_paid = models.CharField(max_length=50, null=True, blank=True)
@@ -16,8 +17,6 @@ class Bill(models.Model):
     )
     customer_id = models.CharField(max_length=255, null=True)
     invoice_no = models.CharField(max_length=255, null=True, blank=True, unique=True)
-    bank_code = models.CharField(max_length=255, null=True)
-    erp_status = models.BooleanField(default=False)
     slug = None
 
     class Meta:

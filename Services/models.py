@@ -3,8 +3,8 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 class FormField(models.Model):
-    key = models.CharField(max_length=100)
-    name = models.CharField(max_length=100)
+    key = models.CharField(max_length=100, null=True, blank=True)
+    name = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(default="")
     min = models.PositiveSmallIntegerField(blank=True, null=True)
     max = models.PositiveSmallIntegerField(blank=True, null=True)
@@ -18,7 +18,7 @@ class FormField(models.Model):
         verbose_name_plural = _("Form Fields")
 
 class Form(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(default="")
     slug = None
 
@@ -32,8 +32,8 @@ class Form(models.Model):
 
 class FormSection(models.Model):
     index = models.PositiveSmallIntegerField()
-    key = models.CharField(max_length=50)
-    name = models.CharField(max_length=100)
+    key = models.CharField(max_length=50, null=True, blank=True)
+    name = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(default="")
     form = models.ForeignKey(Form, related_name="sections", on_delete=models.PROTECT)
     fields = models.ManyToManyField(to=FormField, through="FormSectionField")
@@ -51,12 +51,12 @@ class FormSection(models.Model):
         return f"{self.name} - {self.form.name}"
 
 class FormSectionField(models.Model):
-    index = models.PositiveSmallIntegerField()
+    index = models.PositiveSmallIntegerField( null=True, blank=True)
     field = models.ForeignKey(FormField, on_delete=models.PROTECT)
     section = models.ForeignKey(FormSection, on_delete=models.PROTECT)
     hidden = models.BooleanField(default=False)
     default = models.CharField(max_length=50, null=True, blank=True)
-    readonly = models.BooleanField(null=True)
+    readonly = models.BooleanField( null=True, blank=True)
     is_required = models.BooleanField(default=False)
     slug = None
 
@@ -71,7 +71,7 @@ class FormSectionField(models.Model):
         return f"{self.field.name} - {self.section.name}"
 
 class ServiceType(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(default="")
     code = models.CharField(max_length=100, default="")
     form = models.ForeignKey(Form, on_delete=models.CASCADE)
@@ -80,7 +80,7 @@ class ServiceType(models.Model):
 
 
 class ServiceCategory(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(default="")
     code = models.CharField(max_length=100, default="")
     type = models.ForeignKey(ServiceType, related_name="categories", on_delete=models.PROTECT)
@@ -88,14 +88,14 @@ class ServiceCategory(models.Model):
 
     class Meta:
         ordering = ("name",)
-        verbose_name = _("Application Category")
-        verbose_name_plural = _("Application Categories")
+        verbose_name = _("Service Category")
+        verbose_name_plural = _("Service Categories")
 
     def __str__(self):
         return self.name
 
 
-class ServiceApplication(models.Model):
+class ServiceApplications(models.Model):
     submission_number = models.CharField(max_length=10, null=True, blank=True)
     type = models.ForeignKey(
         ServiceType,
@@ -111,3 +111,19 @@ class ServiceApplication(models.Model):
     )
     is_paid = models.BooleanField(default=False)
     submitted_at = models.DateTimeField(null=True, blank=True)
+
+class ServiceOrder(models.Model):
+    category_name = models.CharField(max_length=250, null=True, blank=True)
+    service_name = models.CharField(max_length=250, null=True, blank=True)
+    technician = models.CharField(max_length=250, null=True, blank=True)
+    service_date = models.DateTimeField(null=True, blank=True)
+    message = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.category_name
+        
+    class Meta:
+        verbose_name = _("Service Order")
+        verbose_name_plural = _("Service Orders")
+
+
