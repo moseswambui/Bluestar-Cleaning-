@@ -1,7 +1,7 @@
 body {
 	font-family: 'Karla', sans-serif;
 	background-color: #ececec;
-	background-image: linear-gradient(to left bottom, #3a0051, #560051, #6f004f, #86004a, #990044);
+	background-image: linear-gradient(to left bottom,#022541 , #004876, #006dc4);
 	background-size: 504px 100%;
 	background-repeat: no-repeat;
 	background-position: right;
@@ -96,7 +96,8 @@ main {
 
 .wizard .steps>ul li.current .uneek-wizard-step-icon,
 .wizard .steps>ul li.done .uneek-wizard-step-icon {
-	background-color: gold;
+	background-color: #be1e2d;
+	color: white;
 }
 
 .wizard .content .title {
@@ -160,13 +161,13 @@ main {
 .wizard .actions li a {
 	display: inline-block;
 	border-radius: 6px;
-	background-color: gold;
+	background-color: #be1e2d;
 	padding: 16px 30px;
 	margin-right: 20px;
 	font-size: 15px;
 	border: 0 !important;
 	font-weight: bold;
-	color: rgba(0, 0, 0, 0.54);
+	color: white;
 }
 
 .wizard .actions li a:hover {
