@@ -27,8 +27,8 @@ class ServiceCategoryAdmin(admin.ModelAdmin):
 class ServiceApplicationAdmin(admin.ModelAdmin):
     list_display = ("submission_number", "type", "category")
 
-class ServiceOrderAdmin(admin.ModelAdmin):
-    list_display = ('category_name', 'service_name', 'technician', 'service_date')
+class AppointmentOrderAdmin(admin.ModelAdmin):
+    list_display = ('category', 'service', 'appointment_date')
 
 admin.site.register(FormField, FormFieldAdmin)
 admin.site.register(Form, FormAdmin)
@@ -36,4 +36,4 @@ admin.site.register(FormSection, FormSectionAdmin)
 admin.site.register(ServiceType, ServiceTypeAdmin)
 admin.site.register(ServiceCategory, ServiceCategoryAdmin)
 admin.site.register(ServiceApplications, ServiceApplicationAdmin)
-admin.site.register(ServiceOrder, ServiceOrderAdmin)
+admin.site.register(AppointmentOrder, AppointmentOrderAdmin)

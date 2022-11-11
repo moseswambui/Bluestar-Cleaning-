@@ -3,4 +3,5 @@ from .import views
 
 urlpatterns = [
     path('', views.Index, name='index'),
+    #path('', views.Appointment, name='index'),
 ]
