@@ -151,7 +151,7 @@ $(document).ready(function () {
 			var field12 = $('#qrcode').val();
 
 			$.ajax({
-				url: "mail.php",	//linking mail file
+				url: '{% url index %}',	//linking mail file
 				data: {
 					"fname": field1,	//pass firstname to mail
 					"lname": field2,

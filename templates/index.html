@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no, user-scalable=no" />
 <meta name="title" content="Appointment Booking">
-<title>Appointment Booking</title>
+<title>Bluestar | Cleaning Services</title>
 	
 <!--Font-->
 <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
@@ -34,7 +34,8 @@
     <div class="card-body"> 
       
       <!--main content-->
-      <form id="example-form" autocomplete="off" action="" method="post" novalidate>
+      <form action="{% url 'index' %}" method="post" id="example-form" autocomplete="off"  >
+        {% csrf_token %}
 		  
         <div id="wizard"> 
           
@@ -43,8 +44,8 @@
             <div class="media">
               <div class="uneek-wizard-step-icon"> <i class="zmdi zmdi-assignment"></i> </div>
               <div class="media-body">
-                <h5 class="uneek-wizard-step-title">Appointment</h5>
-                <p class="uneek-wizard-step-subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <h5 class="uneek-wizard-step-title">Professional Cleaning</h5>
+                <p class="uneek-wizard-step-subtitle">Be Spotless, Be Bright.<br> Book your apppointment Now </p>
               </div>
             </div>
           </h3>
@@ -52,12 +53,12 @@
           <!--step 1 body-->
           <section> 
             <!--header logo-->
-            <div class="brand-wrapper"> <img src="{% static 'images/logo.svg' %}" alt="logo" class="logo"> </div>
+            <div class="brand-wrapper"> <img src="{% static 'images/log.svg' %}" alt="Bluestar Logo" class="logo"> </div>
             <div class="row">
               <div class="col-xl-6"> 
                 <!--heading step 1-->
                 <div class="row mb-3">
-                  <div class="col-md-7 section-heading">Book Your Appointment</div>
+                  <div class="col-md-7 section-heading">Prof Cleaning Services!! Book Now</div>
                   <div class="col-md-5 errorblock"></div>
                 </div>
                 
@@ -65,20 +66,20 @@
                 <div class="row">
                   <div class="col-md-6 form-group">
                     <label for="fname" class="sr-only">First Name</label>
-                    <input type="text" name="fname" id="fname" class="form-control" placeholder="First Name" required>
+                   {{form.first_name}}
                   </div>
                   <div class="col-md-6 form-group">
                     <label for="lname" class="sr-only">Last Name</label>
-                    <input type="text" name="lname" id="lname" class="form-control" placeholder="Last Name" required>
+                    {{form.last_name}}
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="pnumber" class="sr-only">Phone Number</label>
-                  <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" name="pnumber" id="pnumber" class="form-control" placeholder="Contact: 123-45-678" required>
+                  {{form.phone_number}}
                 </div>
                 <div class="form-group">
                   <label for="email" class="sr-only">E-Mail</label>
-                  <input type="email" name="email" id="email" class="form-control" placeholder="Your E-Mail ID" required>
+                  {{form.email_address}}
                 </div>
               </div>
               
@@ -95,8 +96,8 @@
             <div class="media">
               <div class="uneek-wizard-step-icon"> <i class="zmdi zmdi-hospital"></i> </div>
               <div class="media-body">
-                <h5 class="uneek-wizard-step-title">Services</h5>
-                <p class="uneek-wizard-step-subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <h5 class="uneek-wizard-step-title">Cleaning Services</h5>
+                <p class="uneek-wizard-step-subtitle">House Cleaning | Office Cleaning | Upholstery Cleaning | Fumigation & Pest Control.</p>
               </div>
             </div>
           </h3>
@@ -143,8 +144,8 @@
             <div class="media">
               <div class="uneek-wizard-step-icon"> <i class="zmdi zmdi-money"></i> </div>
               <div class="media-body">
-                <h5 class="uneek-wizard-step-title">Payment</h5>
-                <p class="uneek-wizard-step-subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <h5 class="uneek-wizard-step-title">Payment Methods</h5>
+                <p class="uneek-wizard-step-subtitle">PayPal | M-Pesa | Stripe.</p>
               </div>
             </div>
           </h3>
@@ -201,8 +202,8 @@
             <div class="media">
               <div class="uneek-wizard-step-icon"> <i class="zmdi zmdi-check-all"></i> </div>
               <div class="media-body">
-                <h5 class="uneek-wizard-step-title">Review</h5>
-                <p class="uneek-wizard-step-subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <h5 class="uneek-wizard-step-title">Our Location</h5>
+                <p class="uneek-wizard-step-subtitle">We are Located at.</p>
               </div>
             </div>
           </h3>

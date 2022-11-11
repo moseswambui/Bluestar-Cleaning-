@@ -112,18 +112,24 @@ class ServiceApplications(models.Model):
     is_paid = models.BooleanField(default=False)
     submitted_at = models.DateTimeField(null=True, blank=True)
 
-class ServiceOrder(models.Model):
-    category_name = models.CharField(max_length=250, null=True, blank=True)
-    service_name = models.CharField(max_length=250, null=True, blank=True)
-    technician = models.CharField(max_length=250, null=True, blank=True)
-    service_date = models.DateTimeField(null=True, blank=True)
+class AppointmentOrder(models.Model):
+    first_name = models.CharField(max_length=250, null=True, blank=True)
+    last_name = models.CharField(max_length=250, null=True, blank=True)
+    phone_number = models.CharField(max_length=250, null=True, blank=True)
+    email_address = models.EmailField(null=True, blank=True)
+    category = models.CharField(max_length=250, null=True, blank=True)
+    service = models.CharField(max_length=250, null=True, blank=True)
+    consultant = models.CharField(max_length=250, null=True, blank=True)
+    appointment_date = models.DateTimeField(null=True, blank=True)
     message = models.TextField(null=True, blank=True)
+    payment_mode = models.CharField(max_length=250, null=True, blank=True)
+
 
     def __str__(self):
         return self.category_name
         
     class Meta:
-        verbose_name = _("Service Order")
-        verbose_name_plural = _("Service Orders")
+        verbose_name = _("Appointment")
+        verbose_name_plural = _("Appointments")
 
 
