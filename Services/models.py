@@ -83,7 +83,7 @@ class ServiceCategory(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(default="")
     code = models.CharField(max_length=100, default="")
-    type = models.ForeignKey(ServiceType, related_name="categories", on_delete=models.PROTECT)
+    type = models.ForeignKey(ServiceType,blank=True, null=True, related_name="categories", on_delete=models.PROTECT)
     slug = None
 
     class Meta:
@@ -94,6 +94,53 @@ class ServiceCategory(models.Model):
     def __str__(self):
         return self.name
 
+
+class ServiceVariationManager(models.Manager):
+    def service(self):
+        return super(ServiceVariationManager, self).filter(variation_category="service")
+    def charges(self):
+        return super(ServiceVariationManager, self).filter(variation_category="charges")
+
+variation_category_choice=(
+    ('service','service'),
+    ('charges','charges'),
+   
+)
+class ServiceVariation(models.Model):
+    category = models.ForeignKey(ServiceCategory, null=True, blank=True, on_delete=models.CASCADE)
+    variation_category = models.CharField(max_length=100, choices=variation_category_choice)
+    variation_value = models.CharField(max_length=250)
+    created_date = models.DateTimeField(auto_now=True)
+
+    objects = ServiceVariationManager()
+    class Meta:
+        verbose_name = ("Service Variation")
+        verbose_name_plural =("Service Variations")
+
+    def __str__(self):
+        return self.variation_value
+
+class TechnicianVariationManager(models.Manager):
+    def technician(self):
+        return super(TechnicianVariationManager, self).filter(variation_category="technician")
+   
+variation_technician_choice=(
+    ('technician','technician'),
+   
+)
+class TechnicianVariation(models.Model):
+    category = models.ForeignKey(ServiceCategory, null=True, blank=True, on_delete=models.CASCADE)
+    variation_category = models.CharField(max_length=100, choices=variation_technician_choice)
+    variation_value = models.CharField(max_length=250)
+    created_date = models.DateTimeField(auto_now=True)
+
+    objects = TechnicianVariationManager()
+    class Meta:
+        verbose_name = ("Technician Variation")
+        verbose_name_plural =("Technician Variations")
+
+    def __str__(self):
+        return self.variation_value
 
 class ServiceApplications(models.Model):
     submission_number = models.CharField(max_length=10, null=True, blank=True)

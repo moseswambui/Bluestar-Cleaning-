@@ -121,68 +121,92 @@ $(document).ready(function () {
 	//fill our models with example data
 	function buildData() {
 		var uomBachelor = new cascadingOption({
-			text: 'Manual Therapy',
+			text: 'Sofa Cleaning',
 			childOptions: [
 				new cascadingOption({
-					text: 'Dr. Joseph Rio (220$)'
+					text: 'Humphrey Juma'
 				}),
 				new cascadingOption({
-					text: 'Dr. John Mill (220$)'
+					text: 'any'
 				})
 			]
 		});
 
 		var uomMaster = new cascadingOption({
-			text: 'Education and Advice',
+			text: 'Carpet Cleaning',
 			childOptions: [
 				new cascadingOption({
-					text: 'Dr. Sandy Andrea (220$)'
+					text: 'Kelvin Kelwa'
 				}),
 				new cascadingOption({
-					text: 'Dr. Meghan Kate (220$)'
+					text: 'Joyce Musome)'
+				})
+			]
+		});
+
+		var uomMattre = new cascadingOption({
+			text: 'Mattress Cleaning',
+			childOptions: [
+				new cascadingOption({
+					text: 'Kelvin Kelwa )'
+				}),
+				new cascadingOption({
+					text: 'Joyce Musome)'
+				})
+			]
+		});
+
+		var uomCurtain = new cascadingOption({
+			text: 'Curtain Cleaning',
+			childOptions: [
+				new cascadingOption({
+					text: 'Kelvin Kelwa)'
+				}),
+				new cascadingOption({
+					text: 'Joyce Musome )'
 				})
 			]
 		});
 
 		var uom = new cascadingOption({
-			text: 'Physiotherapist ',
-			childOptions: [uomBachelor, uomMaster]
+			text: 'Upholstery Cleaning ',
+			childOptions: [uomBachelor, uomMaster, uomMattre, uomCurtain]
 		});
 
 		var mdx = new cascadingOption({
-			text: 'Dentist',
+			text: 'Office Cleaning',
 			childOptions: [
 				new cascadingOption({
-					text: 'Checkup',
+					text: 'After Renovation Cleaning',
 					childOptions: [{
-							text: 'Dr. Oli Ye (150$)'
+							text: 'Humphrey Juma)'
 						},
-						{
-							text: 'Dr. Peg Legge (150$)'
-						},
+						
 					]
 				}),
 				new cascadingOption({
-					text: 'Dental Cleaning',
+					text: 'Occupied Office Cleaning',
 					childOptions: [{
-							text: 'Dr. Cierra Vega (220$)'
+							text: 'Humphrey Juma)'
 						},
-						{
-							text: 'Dr. Kierra Gentry (220$)'
-						}
+						
 					]
 				}),
 				new cascadingOption({
-					text: 'Implants',
+					text: 'New Office Cleaning',
 					childOptions: [{
-							text: 'Dr. Thomas Crane (220$)'
+							text: 'any'
 						},
-						{
-							text: 'Dr. Miranda Shaffer (220$)'
+					
+					]
+				}),
+
+				new cascadingOption({
+					text: 'Pre/Post Tenancy Cleaning',
+					childOptions: [{
+							text: 'any'
 						},
-						{
-							text: 'Dr. Alvaro Mcgee (220$)'
-						}
+					
 					]
 				})
 			]
@@ -193,29 +217,95 @@ $(document).ready(function () {
 		
 		
 		var h2 = new cascadingOption({
-			text: 'Cardiologist',
+			text: 'House Cleaning',
 			childOptions: [
 				new cascadingOption({
-					text: 'Checkup',
+					text: 'Post Construction Cleaning',
 					childOptions: [{
-							text: 'Dr. Aida Bugg (150$)'
+							text: 'any'
 						},
-						{
-							text: 'Dr. Peg Legge (150$)'
+						
+					]
+				}),
+
+				new cascadingOption({
+					text: 'After Renovation Cleaning',
+					childOptions: [{
+							text: 'any'
 						},
+						
 					]
 				}),
 				new cascadingOption({
-					text: 'Surgeries',
+					text: 'Occupied House Cleaning',
 					childOptions: [{
-							text: 'Dr. Miranda Shaffer (220$)'
+							text: 'any'
 						},
-						{
-							text: 'Dr. Allie Grater (220$)'
+					
+					]
+				}),
+				new cascadingOption({
+					text: 'Pre/Post Tenancy Cleaning',
+					childOptions: [{
+							text: 'any'
 						},
-						{
-							text: 'Dr. Olive Yew (220$)'
+						
+					]
+				})
+			]
+		});
+
+		var pstrc = new cascadingOption({
+			text: 'Fumigation and Pest Control',
+			childOptions: [
+				new cascadingOption({
+					text: 'Cockroaches Control',
+					childOptions: [{
+							text: 'any'
 						},
+						
+					]
+				}),
+
+				new cascadingOption({
+					text: 'Bedbugs Control',
+					childOptions: [{
+							text: 'any'
+						},
+						
+					]
+				}),
+				new cascadingOption({
+					text: 'Mosquitoes Control',
+					childOptions: [{
+							text: 'any'
+						},
+						
+					]
+				}),
+				new cascadingOption({
+					text: 'Termites Control',
+					childOptions: [{
+							text: 'Any'
+						},
+						
+					]
+				}),
+				new cascadingOption({
+					text: 'Flies Control',
+					childOptions: [{
+							text: 'any'
+						},
+						
+					]
+				}),
+				new cascadingOption({
+					text: 'General Pests',
+					childOptions: [{
+							text: 'any'
+						},
+						
+						
 					]
 				})
 			]
@@ -225,7 +315,7 @@ $(document).ready(function () {
 		// END
 
 		//return values
-		return [uom, mdx, h2];
+		return [uom, mdx, h2,pstrc];
 
 	}
 

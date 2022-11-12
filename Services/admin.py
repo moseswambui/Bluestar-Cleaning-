@@ -21,8 +21,20 @@ class FormAdmin(admin.ModelAdmin):
 class ServiceTypeAdmin(admin.ModelAdmin):
     list_display = ("name", "description", "form")
 
+class ServiceVariationAdminInlines(admin.TabularInline):
+    model = ServiceVariation
+    list_display = ('category', 'variation_category', 'variation_value',)
+
+class TechnicianVariationAdminInlines(admin.TabularInline):
+    model = TechnicianVariation
+    list_display = ('category', 'variation_category', 'variation_value',)
+
 class ServiceCategoryAdmin(admin.ModelAdmin):
-    list_display = ("name", "description", "type")
+    list_display = ("name", "description", "code")
+    inlines = [ServiceVariationAdminInlines, TechnicianVariationAdminInlines]
+    list_filter = (
+        'name',
+    )
 
 class ServiceApplicationAdmin(admin.ModelAdmin):
     list_display = ("submission_number", "type", "category")
