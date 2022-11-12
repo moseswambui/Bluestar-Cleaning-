@@ -121,49 +121,49 @@ $(document).ready(function () {
 	//fill our models with example data
 	function buildData() {
 		var uomBachelor = new cascadingOption({
-			text: 'Manual Therapy',
+			text: 'Sofa Cleaning',
 			childOptions: [
 				new cascadingOption({
-					text: 'Dr. Joseph Rio (220$)'
+					text: 'Joseph Rio (220$)'
 				}),
 				new cascadingOption({
-					text: 'Dr. John Mill (220$)'
+					text: 'John Mill (220$)'
 				})
 			]
 		});
 
 		var uomMaster = new cascadingOption({
-			text: 'Education and Advice',
+			text: 'Carpet Cleaning',
 			childOptions: [
 				new cascadingOption({
-					text: 'Dr. Sandy Andrea (220$)'
+					text: 'Sandy Andrea (220$)'
 				}),
 				new cascadingOption({
-					text: 'Dr. Meghan Kate (220$)'
+					text: 'Meghan Kate (220$)'
 				})
 			]
 		});
 
 		var uom = new cascadingOption({
-			text: 'Physiotherapist ',
+			text: 'Upholstery Cleaning ',
 			childOptions: [uomBachelor, uomMaster]
 		});
 
 		var mdx = new cascadingOption({
-			text: 'Dentist',
+			text: 'Office Cleaning',
 			childOptions: [
 				new cascadingOption({
-					text: 'Checkup',
+					text: 'Occupied Office',
 					childOptions: [{
-							text: 'Dr. Oli Ye (150$)'
+							text: 'Oli Ye (150$)'
 						},
 						{
-							text: 'Dr. Peg Legge (150$)'
+							text: 'Peg Legge (150$)'
 						},
 					]
 				}),
 				new cascadingOption({
-					text: 'Dental Cleaning',
+					text: 'After Renovation',
 					childOptions: [{
 							text: 'Dr. Cierra Vega (220$)'
 						},
@@ -173,15 +173,15 @@ $(document).ready(function () {
 					]
 				}),
 				new cascadingOption({
-					text: 'Implants',
+					text: 'New Office',
 					childOptions: [{
-							text: 'Dr. Thomas Crane (220$)'
+							text: 'Thomas Crane (220$)'
 						},
 						{
-							text: 'Dr. Miranda Shaffer (220$)'
+							text: 'Miranda Shaffer (220$)'
 						},
 						{
-							text: 'Dr. Alvaro Mcgee (220$)'
+							text: 'Alvaro Mcgee (220$)'
 						}
 					]
 				})
@@ -193,28 +193,28 @@ $(document).ready(function () {
 		
 		
 		var h2 = new cascadingOption({
-			text: 'Cardiologist',
+			text: 'House Cleaning',
 			childOptions: [
 				new cascadingOption({
-					text: 'Checkup',
+					text: 'Post Construction',
 					childOptions: [{
-							text: 'Dr. Aida Bugg (150$)'
+							text: 'Aida Bugg (150$)'
 						},
 						{
-							text: 'Dr. Peg Legge (150$)'
+							text: 'Peg Legge (150$)'
 						},
 					]
 				}),
 				new cascadingOption({
-					text: 'Surgeries',
+					text: 'After Renovation',
 					childOptions: [{
-							text: 'Dr. Miranda Shaffer (220$)'
+							text: 'Miranda Shaffer (220$)'
 						},
 						{
-							text: 'Dr. Allie Grater (220$)'
+							text: 'Allie Grater (220$)'
 						},
 						{
-							text: 'Dr. Olive Yew (220$)'
+							text: 'Olive Yew (220$)'
 						},
 					]
 				})
