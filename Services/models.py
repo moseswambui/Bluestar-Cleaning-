@@ -95,31 +95,53 @@ class ServiceCategory(models.Model):
         return self.name
 
 
-class VariationManager(models.Manager):
+class ServiceVariationManager(models.Manager):
     def service(self):
-        return super(VariationManager, self).filter(variation_category="service")
+        return super(ServiceVariationManager, self).filter(variation_category="service")
     def charges(self):
-        return super(VariationManager, self).filter(variation_category="charges")
+        return super(ServiceVariationManager, self).filter(variation_category="charges")
 
 variation_category_choice=(
     ('service','service'),
     ('charges','charges'),
    
 )
-class Variation(models.Model):
+class ServiceVariation(models.Model):
     category = models.ForeignKey(ServiceCategory, null=True, blank=True, on_delete=models.CASCADE)
     variation_category = models.CharField(max_length=100, choices=variation_category_choice)
     variation_value = models.CharField(max_length=250)
     created_date = models.DateTimeField(auto_now=True)
 
-    objects = VariationManager()
+    objects = ServiceVariationManager()
     class Meta:
-        verbose_name = ("Variation")
-        verbose_name_plural =("Variations")
+        verbose_name = ("Service Variation")
+        verbose_name_plural =("Service Variations")
 
     def __str__(self):
         return self.variation_value
-        
+
+class TechnicianVariationManager(models.Manager):
+    def technician(self):
+        return super(TechnicianVariationManager, self).filter(variation_category="technician")
+   
+variation_technician_choice=(
+    ('technician','technician'),
+   
+)
+class TechnicianVariation(models.Model):
+    category = models.ForeignKey(ServiceCategory, null=True, blank=True, on_delete=models.CASCADE)
+    variation_category = models.CharField(max_length=100, choices=variation_technician_choice)
+    variation_value = models.CharField(max_length=250)
+    created_date = models.DateTimeField(auto_now=True)
+
+    objects = TechnicianVariationManager()
+    class Meta:
+        verbose_name = ("Technician Variation")
+        verbose_name_plural =("Technician Variations")
+
+    def __str__(self):
+        return self.variation_value
+
 class ServiceApplications(models.Model):
     submission_number = models.CharField(max_length=10, null=True, blank=True)
     type = models.ForeignKey(
