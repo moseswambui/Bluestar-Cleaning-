@@ -104,7 +104,7 @@ class ServiceForm(forms.ModelForm):
             'placeholder':'Your E-Mail Address',
         })
         self.fields['service_type'].widget.attrs.update({
-            'type':'email',
+            'type':'service',
             'name':'category',
             'id':'category',
         })
@@ -112,6 +112,11 @@ class ServiceForm(forms.ModelForm):
             'type':'select',
             'name':'service',
             'id':'service',
+        })
+        self.fields['consultant'].widget.attrs.update({
+            'type':'select',
+            'name':'consultant',
+            'id':'consultant',
         })
         self.fields['service_date'].widget.attrs.update({
             'type':'text',
@@ -128,7 +133,8 @@ class ServiceForm(forms.ModelForm):
             'placeholder':'Select Multiple Dates',
         })
 
-        self.fields['service_category'].queryset = ServiceCategory.objects.none()
+        self.fields['service_category'].queryset = ServiceCategory.objects.all()
+
 
         if 'service_type' in self.data:
             try:

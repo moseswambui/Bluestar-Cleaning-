@@ -58,7 +58,7 @@
               <div class="col-xl-6"> 
                 <!--heading step 1-->
                 <div class="row mb-3">
-                  <div class="col-md-7 section-heading">Prof Cleaning Services!! Book Now</div>
+                  <div class="col-md-offset-9 section-heading">Professional Cleaning Services!! Book Now</div>
                   <div class="col-md-5 errorblock"></div>
                 </div>
                 
@@ -125,9 +125,9 @@
             <div class="row">
               <div class="form-group col-md-6">
                 <label for="consultant">Consultant</label>
-                <select id="consultant" name="consultant" data-bind="select2:{} ,options: togaConsultants, value: selectedConsultant,optionsValue:'text', optionsText : 'text', optionsCaption : 'Select your Consultant', enable: togaConsultants" required>
-                </select>
+                {{form.consultant}}
               </div>
+
               <div class="form-group col-md-6">
                 <label for="dp">I'm available on or after</label>
                 <input type="text" name="dp" class="datepicker-here form-control" data-language="en" id="dp" placeholder="Select Multiple Dates" data-date-format="dd M yyyy" required>
@@ -164,14 +164,14 @@
                   <input type="radio" id="customRadio1" name="pay" class="custom-control-input" value="During Visit" required>
                   <label class="custom-control-label" for="customRadio1"> Pay during visit. </label>
                 </div>
-                <div class="custom-control custom-radio mb-3">
+                <!-- <div class="custom-control custom-radio mb-3">
                   <input type="radio" id="customRadio2" name="pay" class="custom-control-input" required value="Paypal">
                   <label class="custom-control-label" for="customRadio2"> Pay via Paypal. </label>
                 </div>
                 <div class="custom-control custom-radio mb-3">
                   <input type="radio" id="customRadio3" name="pay" class="custom-control-input" required value="Google-Pay">
                   <label class="custom-control-label" for="customRadio3"> Pay using QR Code. </label>
-                </div>
+                </div> -->
               </div>
               <div class="col-md-6"> 
                 <!--paypal fields-->
@@ -188,7 +188,7 @@
                   <div class="row">
                     <div class="col-md-4 mb-3 text-center"> <img src="{% static 'images/Uneekcc1.png' %}" height="100px" alt="QR code for booking"> </div>
                     <div class="col-md-8 form-group">
-                      <label for="qrcode">Google Pay</label>
+                      <lel for="qrcode">Google Pay</label>
                       <input type="text" name="qrcode" id="qrcode" class="form-control" placeholder="Transaction ID">
                     </div>
                   </div>
