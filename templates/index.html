@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no, user-scalable=no" />
 <meta name="title" content="Appointment Booking">
 <title>Bluestar | Cleaning Services </title>
-	
+<script src="https://cdn.tailwindcss.com"></script>
 <!--Font-->
 <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
 
@@ -53,7 +53,7 @@
           <!--step 1 body-->
           <section> 
             <!--header logo-->
-            <div class="brand-wrapper"> <img src="{% static 'images/log.svg' %}" alt="Bluestar Logo" class="logo"> </div>
+            <div class="brand-wrapper"> <img src="{% static 'images/logo.png' %}" alt="Bluestar Logo" class="logo"> </div>
             <div class="row">
               <div class="col-xl-6"> 
                 <!--heading step 1-->
@@ -84,11 +84,11 @@
               </div>
               
               <!--image step 1-->
-              <div class="col-xl-6 d-none d-xl-block"> <img src="{% static 'images/step1.svg' %}" alt="appointment" class="img-fluid"> </div>
+              <div class="col-xl-4 d-none d-xl-block"> <img src="{% static 'images/blustar.jpg' %}" alt="appointment" class="border-2 border-blue-700"> </div>
             </div>
             
             <!--card footer step 1-->
-            <p class="card-footer-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+            <p class="card-footer-text">The next step is to book an appointment with the best cleaning services company in Nairobi, Bluestar.</p>
           </section>
           
           <!--step 2 steps-content-->
@@ -104,19 +104,20 @@
 			
           <!--step 2 body-->
           <section>
-            <div class="brand-wrapper"> <img src="{% static 'images/logo.svg' %}" alt="logo" class="logo"> </div>
+            <div class="brand-wrapper"> <img src="{% static 'images/logo.png' %}" alt="logo" class="logo"> </div>
             <div class="row mb-3">
               <div class="col-md-3 section-heading">Select Your Service</div>
               <div class="col-md-9 errorblock"></div>
             </div>
             <div class="row">
               <div class="form-group col-md-6">
-                <label for="category">Category</label>
+                <label for="service">Service</label>
+            
                 {{form.service_type}}
                 </select>
               </div>
               <div class="form-group col-md-6">
-                <label for="service">Service</label>
+                <label for="category">Category</label>
                 {{form.service_category}}
                 </select>
               </div>
@@ -152,7 +153,7 @@
 			
           <!--step 3 body-->
           <section>
-            <div class="brand-wrapper"> <img src="{% static 'images/logo.svg' %}" alt="logo" class="logo"> </div>
+            <div class="brand-wrapper"> <img src="{% static 'images/logo.png' %}" alt="logo" class="logo"> </div>
             <div class="row mb-3">
               <div class="col-md-3 section-heading">Mode of Payment</div>
               <div class="col-md-9 errorblock"></div>
@@ -210,7 +211,7 @@
 			
           <!--step 4 body-->
           <section>
-            <div class="brand-wrapper"> <img src="{% static 'images/logo.svg' %}" alt="logo" class="logo"> </div>
+            <div class="brand-wrapper"> <img src="{% static 'images/logo.png' %}" alt="logo" class="logo"> </div>
             <div class="row">
               <div class="col-xl-6"> 
                 
