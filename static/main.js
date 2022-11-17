@@ -115,7 +115,7 @@ $(document).ready(function () {
 		self.data = self;
 		self.text = data.text;
 		self.childOptions = data.childOptions;
-		console.log(self);
+		
 	}
 
 	//fill our models with example data
@@ -339,7 +339,7 @@ $(document).ready(function () {
 		if (viewModel.selectedService()) {
 			var type = ko.utils.arrayFirst(viewModel.togaServices(), function (item) {
 				return item.text === viewModel.selectedService();
-				console.log("Answer:" + item);
+				
 			});
 			return type.childOptions;
 		}

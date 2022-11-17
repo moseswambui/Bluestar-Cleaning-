@@ -74,8 +74,10 @@ class ServiceType(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(default="")
     code = models.CharField(max_length=100, default="")
-    form = models.ForeignKey(Form, on_delete=models.CASCADE)
+    form = models.ForeignKey(Form,null=True, blank=True, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.name
 
 
 
@@ -94,6 +96,28 @@ class ServiceCategory(models.Model):
     def __str__(self):
         return self.name
 
+class Consultant(models.Model):
+    name = models.CharField(max_length=100, null=True, blank=True)
+    type = models.ForeignKey(ServiceType,blank=True, null=True, related_name="consultants", on_delete=models.PROTECT)
+    slug = None
+
+    class Meta:
+        ordering = ("name",)
+        verbose_name = _("Consultant")
+        verbose_name_plural = _("Consultants")
+
+    def __str__(self):
+        return self.name
+
+class Service(models.Model):  
+    first_name = models.CharField(max_length=250, null=True, blank=True)
+    last_name = models.CharField(max_length=250, null=True, blank=True)
+    phone_number = models.CharField(max_length=250, null=True, blank=True)
+    email_address = models.EmailField(null=True, blank=True)
+    service_type= models.ForeignKey(ServiceType, null=True, blank=True, on_delete=models.CASCADE)
+    service_category = models.ForeignKey(ServiceCategory, null=True, blank=True, on_delete=models.CASCADE)
+    consultant = models.ForeignKey(Consultant, null=True, blank=True, on_delete=models.CASCADE)
+    service_date = models.DateField(null=True, blank=True)
 
 class ServiceVariationManager(models.Manager):
     def service(self):
@@ -141,23 +165,6 @@ class TechnicianVariation(models.Model):
 
     def __str__(self):
         return self.variation_value
-
-class ServiceApplications(models.Model):
-    submission_number = models.CharField(max_length=10, null=True, blank=True)
-    type = models.ForeignKey(
-        ServiceType,
-        null = True,
-        blank=True,
-        on_delete = models.CASCADE,
-    )
-    category = models.ForeignKey(
-        ServiceCategory,
-        null = True,
-        blank=True,
-        on_delete = models.CASCADE,
-    )
-    is_paid = models.BooleanField(default=False)
-    submitted_at = models.DateTimeField(null=True, blank=True)
 
 class AppointmentOrder(models.Model):
     first_name = models.CharField(max_length=250, null=True, blank=True)

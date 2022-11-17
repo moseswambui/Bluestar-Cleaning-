@@ -1,11 +1,11 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from Services.models import ServiceApplications
+from Services.models import Service
 
 class Bill(models.Model):
     STATUS_PENDING, STATUS_PAID, STATUS_REVERSED = ("PENDING", "PAID", "REVERSED")
     application_submission = models.ForeignKey(
-        ServiceApplications,blank=True, null=True, on_delete=models.PROTECT
+        Service,blank=True, null=True, on_delete=models.PROTECT
     )
     amount = models.CharField(max_length=50, null=True, blank=True)
     amount_paid = models.CharField(max_length=50, null=True, blank=True)
