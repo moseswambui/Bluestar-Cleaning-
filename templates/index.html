@@ -44,8 +44,8 @@
             <div class="media">
               <div class="uneek-wizard-step-icon"> <i class="zmdi zmdi-assignment"></i> </div>
               <div class="media-body">
-                <h5 class="uneek-wizard-step-title">Professional Cleaning</h5>
-                <p class="uneek-wizard-step-subtitle">Be Spotless, Be Bright.<br> Book your apppointment Now </p>
+                <h5 class="uneek-wizard-step-title">Contacts</h5>
+                <p class="uneek-wizard-step-subtitle">Your contact information </p>
               </div>
             </div>
           </h3>
@@ -96,8 +96,8 @@
             <div class="media">
               <div class="uneek-wizard-step-icon"> <i class="zmdi zmdi-hospital"></i> </div>
               <div class="media-body">
-                <h5 class="uneek-wizard-step-title">Cleaning Services</h5>
-                <p class="uneek-wizard-step-subtitle">House Cleaning | Office Cleaning | Upholstery Cleaning | Fumigation & Pest Control.</p>
+                <h5 class="uneek-wizard-step-title">Service</h5>
+                <p class="uneek-wizard-step-subtitle">Pick a Service and Category</p>
               </div>
             </div>
           </h3>
@@ -106,13 +106,12 @@
           <section>
             <div class="brand-wrapper"> <img src="{% static 'images/logo.png' %}" alt="logo" class="logo"> </div>
             <div class="row mb-3">
-              <div class="col-md-3 section-heading">Select Your Service</div>
+              <div class="col-md-3 section-heading">Select Service</div>
               <div class="col-md-9 errorblock"></div>
             </div>
             <div class="row">
               <div class="form-group col-md-6">
                 <label for="service">Service</label>
-            
                 {{form.service_type}}
                 </select>
               </div>
@@ -130,14 +129,65 @@
 
               <div class="form-group col-md-6">
                 <label for="dp">I'm available on or after</label>
-                <input type="text" name="dp" class="datepicker-here form-control" data-language="en" id="dp" placeholder="Select Multiple Dates" data-date-format="dd M yyyy" required>
+                <!-- <input type="text" name="dp" class="datepicker-here form-control" data-language="en" id="dp" placeholder="Select Multiple Dates" data-date-format="dd M yyyy" required> -->
               </div>
             </div>
             <div class="form-group">
-              <label for="message1" class="">Message</label>
+              <!-- <label for="message1" class="">Message</label>
+              <textarea class="form-control" name="message1" id="message1" placeholder="Anything else?"></textarea> -->
+            </div>
+            <p class="card-footer-text">Please give the required details for the selected service.</p>
+          </section>
+
+           <!--step 3 steps-content-->
+           <h3>
+            <div class="media">
+              <div class="uneek-wizard-step-icon"> <i class="zmdi zmdi-hospital"></i> </div>
+              <div class="media-body">
+                <h5 class="uneek-wizard-step-title">Details</h5>
+                <p class="uneek-wizard-step-subtitle">Time and Specifications</p>
+              </div>
+            </div>
+          </h3>
+			
+          <!--step 3 body-->
+          <section>
+            <div class="brand-wrapper"> <img src="{% static 'images/logo.png' %}" alt="logo" class="logo"> </div>
+            <div class="row mb-3">
+              <div class="col-md-3 section-heading">Schedule Appointment</div>
+              <div class="col-md-9 errorblock"></div>
+            </div>
+            <!-- <div class="row">
+              <div class="form-group col-md-6">
+                <label for="service">Service</label>
+            
+       
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="category">Category</label>
+             
+                </select>
+              </div>
+            </div> -->
+
+     
+              <!-- <div class="form-group col-md-6">
+                <label for="consultant">Consultant</label>
+            
+              </div> -->
+
+              <div class="form-group">
+                <label for="dp">I'm available on or after</label>
+                <input type="text" name="dp" class="datepicker-here form-control" data-language="en" id="dp" placeholder="Select Multiple Dates" data-date-format="dd M yyyy" required>
+              </div>
+         
+            <div class="form-group">
+              <label for="message1" class="">Note</label>
               <textarea class="form-control" name="message1" id="message1" placeholder="Anything else?"></textarea>
             </div>
-            <p class="card-footer-text">For different dates with different time, select date-1 and time-1, then date-2 and time-2 and so on.</p>
+            <p class="card-footer-text">For different dates with different time, select date-1 and time-1, then date-2 and time-2 and so on. <br/> Leave a note, for special instructions or requests</p>
+
           </section>
           
           <!--step 3 steps-content-->
@@ -145,7 +195,7 @@
             <div class="media">
               <div class="uneek-wizard-step-icon"> <i class="zmdi zmdi-money"></i> </div>
               <div class="media-body">
-                <h5 class="uneek-wizard-step-title">Payment Methods</h5>
+                <h5 class="uneek-wizard-step-title">Payment</h5>
                 <p class="uneek-wizard-step-subtitle">PayPal | M-Pesa | Stripe.</p>
               </div>
             </div>
@@ -203,8 +253,8 @@
             <div class="media">
               <div class="uneek-wizard-step-icon"> <i class="zmdi zmdi-check-all"></i> </div>
               <div class="media-body">
-                <h5 class="uneek-wizard-step-title">Our Location</h5>
-                <p class="uneek-wizard-step-subtitle">We are Located at.</p>
+                <h5 class="uneek-wizard-step-title">Confrimation</h5>
+                <p class="uneek-wizard-step-subtitle">Confirm Your Order</p>
               </div>
             </div>
           </h3>
