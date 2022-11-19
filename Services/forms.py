@@ -1,7 +1,7 @@
 from django import forms
 
 from .models import *
-
+from django.urls import reverse_lazy
 class AppointmentOrderForm(forms.ModelForm):
     class Meta:
         model = AppointmentOrder
@@ -112,6 +112,7 @@ class ServiceForm(forms.ModelForm):
             'type':'select',
             'name':'service',
             'id':'service',
+            "category-queries-url":reverse_lazy("ajax_load_categories")
         })
         self.fields['consultant'].widget.attrs.update({
             'type':'select',
@@ -133,7 +134,7 @@ class ServiceForm(forms.ModelForm):
             'placeholder':'Select Multiple Dates',
         })
 
-        self.fields['service_category'].queryset = ServiceCategory.objects.all()
+        self.fields['service_category'].queryset = ServiceCategory.objects.none()
 
 
         if 'service_type' in self.data:

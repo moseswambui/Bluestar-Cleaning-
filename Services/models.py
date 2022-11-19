@@ -84,6 +84,7 @@ class ServiceType(models.Model):
 class ServiceCategory(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(default="")
+    price = models.IntegerField(null=True, blank=True)
     code = models.CharField(max_length=100, default="")
     type = models.ForeignKey(ServiceType,blank=True, null=True, related_name="categories", on_delete=models.PROTECT)
     slug = None
@@ -108,6 +109,11 @@ class Consultant(models.Model):
 
     def __str__(self):
         return self.name
+
+class ExtraServiceInfo(models.Model):
+    category = models.ForeignKey(ServiceCategory, null=True, blank=True, on_delete=models.CASCADE)
+    price = models.IntegerField(null=True, blank=True)
+
 
 class Service(models.Model):  
     first_name = models.CharField(max_length=250, null=True, blank=True)
