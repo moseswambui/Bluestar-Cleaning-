@@ -4,5 +4,5 @@ from .import views
 urlpatterns = [
     path('', views.Index, name='index'),
     path('form', views.Myform, name='form'),
-    path('ajax/load-services/', views.load_services, name='ajax_load_services'),
+    path('ajax/load-categories/', views.load_categorties, name='ajax_load_categories'),
 ]
