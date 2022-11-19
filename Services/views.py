@@ -35,10 +35,15 @@ def Myform(request):
     }
     return render(request, 'forms.html', context)
 
-def load_services(request):
+def load_categorties(request):
     type_id = request.GET.get('service_type.id')
-    categories = ServiceCategory.objects.filter(type_id = type_id)
+    categories = ServiceCategory.objects.filter(
+        type_id = type_id
+        ).order_by('name')
+
     context = {
         'categories':categories
     }
     return render(request, 'service_dropdown_list.html', context)
+
+

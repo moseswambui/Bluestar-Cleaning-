@@ -34,7 +34,7 @@
     <div class="card-body"> 
       
       <!--main content-->
-      <form action="{% url 'index' %}" method="post" id="example-form" autocomplete="off" data-services-url = "{% url 'ajax_load_services'%}" >
+      <form action="{% url 'index' %}" method="post" id="example-form" autocomplete="off" >
         {% csrf_token %}
 		  
         <div id="wizard"> 
@@ -252,13 +252,8 @@
     </div>
   </div>
 </main>
-<script>
-  let serviceType_field = document.getElementById("category")
-  serviceType_field.addEventListener("change", getTypeId)
-  function getTypeId(e){
-    console.log(e)
-  }
-</script>
+
+<script src="{% static 'categoryDropdownSelection.js' %}"></script> 
 <!--jquery library--> 
 <script src="{% static 'library/jquery3.5.1.min.js' %}"></script> 
 
