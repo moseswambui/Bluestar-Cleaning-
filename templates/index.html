@@ -24,6 +24,8 @@
 
 <!--Additional styling-->
 <link rel="stylesheet" href="{% static 'component.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
 </head>
 
 <body>
@@ -112,7 +114,6 @@
             <div class="row">
               <div class="form-group col-md-6">
                 <label for="service">Service</label>
-            
                 {{form.service_type}}
                 </select>
               </div>
@@ -127,7 +128,6 @@
                 <label for="consultant">Consultant</label>
                 {{form.consultant}}
               </div>
-
               <div class="form-group col-md-6">
                 <label for="dp">I'm available on or after</label>
                 <input type="text" name="dp" class="datepicker-here form-control" data-language="en" id="dp" placeholder="Select Multiple Dates" data-date-format="dd M yyyy" required>
@@ -175,10 +175,45 @@
             </div> -->
 
      
-              <!-- <div class="form-group col-md-6">
-                <label for="consultant">Consultant</label>
+              <div class="form-group">
+                <div>
+                  <div class="container">
+                    <section id="cart">
+                      <article class="product">
+                        <header>
+                            <img src="{% static 'images/sofa.jpg' %}" alt="Gamming Mouse" />
+                        </header>
+                        <div class="content">
+                          <h1><b>Sofa Sets</b></h1>
+                          Specify number of sofa sets
+                        </div>
+                        <footer class="content">
+                          <span class="qt-minus">-</span>
+                          <span class="qt"> 1</span>
+                          <span class="qt-plus">+</span>
+                          <h2 class="full-price">15.50 /=</h2>
+                          <h2 class="price">15.50</h2>
+                        </footer>
+                      </article>
+                    </section>
+                  </div>
+
+                  <footer id="site-footer">
+                    <div class="container cleanfix">
+                      <div class="left">
+                        <h2 class="subtotal">Subtotal: KSh.<span>15.50</span></h2>
+                        <h3 class="tax">Taxes (5%): Ksh.<span>3</span></h3>
+                        <h3 class="shipping">Service Fee: Ksh.<span>200</span></h3>
+                      </div>
             
-              </div> -->
+                      <div class="right">
+                        <h1 class="total">Total: Ksh.<span>0</span></h1>
+             
+                      </div>
+                    </div>
+                  </footer>
+                </div>            
+              </div>
 
               <div class="row">
 
@@ -338,6 +373,9 @@
 <!--custom JS-->
 <script src="{% static 'mail-js.js' %}"></script> 
 <script src="{% static 'main.js' %}"></script>
+
+
+  <script src="{% static './js/script.js'%}"></script>
 	
 </body>
 </html>
