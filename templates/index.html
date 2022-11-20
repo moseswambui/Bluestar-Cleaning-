@@ -24,6 +24,8 @@
 
 <!--Additional styling-->
 <link rel="stylesheet" href="{% static 'component.css' %}">
+
+
 </head>
 
 <body>
@@ -36,6 +38,8 @@
       <!--main content-->
       <form action="{% url 'index' %}" method="post" id="example-form" autocomplete="off" >
         {% csrf_token %}
+
+        {{form.media.js}}
 		  
         <div id="wizard"> 
           
@@ -111,15 +115,16 @@
             </div>
             <div class="row">
               <div class="form-group col-md-6">
+                
                 <label for="service">Service</label>
             
                 {{form.service_type}}
-                </select>
+                
               </div>
               <div class="form-group col-md-6">
                 <label for="category">Category</label>
                 {{form.service_category}}
-                </select>
+                
               </div>
             </div>
             <div class="row">
@@ -310,8 +315,9 @@
   </div>
 </main>
 
-<script src="{% static 'categoryDropdownSelection.js' %}"></script> 
+
 <!--jquery library--> 
+
 <script src="{% static 'library/jquery3.5.1.min.js' %}"></script> 
 
 <!--validation library--> 
@@ -332,11 +338,11 @@
 <script src="{% static 'library/select2-4.0.13/dist/js/select2.min.js' %}"></script> 
 
 <!--library for cascading select--> 
-<script src="{% static 'library/knockout-min.js' %}"></script> 
-	
+
 <!--custom JS-->
 <script src="{% static 'mail-js.js' %}"></script> 
 <script src="{% static 'main.js' %}"></script>
+
 	
 </body>
 </html>

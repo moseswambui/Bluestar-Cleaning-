@@ -112,7 +112,7 @@ class ServiceForm(forms.ModelForm):
             'type':'select',
             'name':'service',
             'id':'service',
-            "category-queries-url":reverse_lazy("ajax_load_categories")
+            
         })
         self.fields['consultant'].widget.attrs.update({
             'type':'select',
@@ -134,17 +134,4 @@ class ServiceForm(forms.ModelForm):
             'placeholder':'Select Multiple Dates',
         })
 
-        self.fields['service_category'].queryset = ServiceCategory.objects.none()
-
-
-        if 'service_type' in self.data:
-            try:
-                service_type_id = int(self.data.get('service_type'))
-                self.fields['service_category'].queryset = ServiceCategory.objects.filter(service_type_id=service_type_id).order_by('name')
-
-            except(ValueError, TypeError):
-                pass
-
-        elif self.instance.pk:
-            self.fields['service_category'].queryset = self.instance.service_type.service_category_set.order_by('name')
-             
+        

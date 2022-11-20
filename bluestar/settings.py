@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "Services",
     'billing',
     "Accounts",
+    "smart_selects",
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,6 @@ STATIC_URL = '/static/'
 STATIC_URL = '/staticfiles/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+JQUERY_URL = False
+USE_DJANGO_JQUERY = True
+FORM_RENDERER = 'django.forms.renderers.DjangoTemplates'
