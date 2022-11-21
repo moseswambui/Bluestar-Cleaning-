@@ -1,19 +1,14 @@
 // JavaScript Document
-
 //Wizard Init
 //FOR WIZARD AND VALIDATIONS
-
 $(document).ready(function () {
 	'use strict';
-
 	//defining form
 	var form = $("#example-form").show();
-
 
 	form.validate({
 		ignore: ".ignore",
 		focusInvalid: true,
-
 
 		errorPlacement: function errorPlacement(error, element) {
 			return false
@@ -48,7 +43,6 @@ $(document).ready(function () {
 			tnc: {
 				required: true,
 			},
-
 		},
 
 		//message for validation

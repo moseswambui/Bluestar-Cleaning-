@@ -25,6 +25,8 @@
 <!--Additional styling-->
 <link rel="stylesheet" href="{% static 'component.css' %}">
 
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
 
 </head>
 
@@ -74,7 +76,7 @@
                   </div>
                   <div class="col-md-6 form-group">
                     <label for="lname" class="sr-only">Last Name</label>
-                    {{form.last_name}}
+                   {{form.last_name}}
                   </div>
                 </div>
                 <div class="form-group">
@@ -117,7 +119,6 @@
               <div class="form-group col-md-6">
                 
                 <label for="service">Service</label>
-            
                 {{form.service_type}}
                 
               </div>
@@ -132,7 +133,6 @@
                 <label for="consultant">Consultant</label>
                 {{form.consultant}}
               </div>
-
               <div class="form-group col-md-6">
                 <label for="dp">I'm available on or after</label>
                 <input type="text" name="dp" class="datepicker-here form-control" data-language="en" id="dp" placeholder="Select Multiple Dates" data-date-format="dd M yyyy" required>
@@ -143,7 +143,7 @@
               <label for="message1" class="">Message</label>
               <textarea class="form-control" name="message1" id="message1" placeholder="Anything else?"></textarea>
             </div> -->
-            <p class="card-footer-text">Please give the required details for the selected service.</p>
+            <p class="card-footer-text">For different dates with different time, select date-1 and time-1, then date-2 and time-2 and so on. </p>
           </section>
 
            <!--step 3 steps-content-->
@@ -161,7 +161,7 @@
           <section>
             <div class="brand-wrapper"> <img src="{% static 'images/logo.png' %}" alt="logo" class="logo"> </div>
             <div class="row mb-3">
-              <div class="col-md-3 section-heading">Schedule Appointment</div>
+              <div class="col-md-3 section-heading">Category Details</div>
               <div class="col-md-9 errorblock"></div>
   
             </div>
@@ -180,14 +180,48 @@
             </div> -->
 
      
-              <!-- <div class="form-group col-md-6">
-                <label for="consultant">Consultant</label>
+              <div class="form-group">
+                <div>
+                  <div class="container">
+                    <section id="cart">
+                      <article class="product">
+                        <header>
+                            <img src="{% static 'images/sofa.jpg' %}" alt="Gamming Mouse" />
+                        </header>
+                        <div class="content">
+                          <h1><b>Sofa Sets</b></h1>
+                          Specify number of sofa sets
+                        </div>
+                        <footer class="content">
+                          <span class="qt-minus">-</span>
+                          <span class="qt"> 1</span>
+                          <span class="qt-plus">+</span>
+                          <h2 class="full-price">15.50 /=</h2>
+                          <h2 class="price">15.50</h2>
+                        </footer>
+                      </article>
+                    </section>
+                    
+                  <footer id="site-footer">
+                    <div class="container cleanfix">
+                      <div class="left">
+                        <h2 class="subtotal">Subtotal: KSh.<span>15.50</span></h2>
+                        <h3 class="tax">Taxes (5%): Ksh.<span>3</span></h3>
+                        <h3 class="shipping">Service Fee: Ksh.<span>200</span></h3>
+                      </div>
             
-              </div> -->
+                      <div class="right">
+                        <h1 class="total">Total: Ksh.<span>15.50</span></h1>
+             
+                      </div>
+                    </div>
+                  </footer>
+                  </div>
 
-              <div class="row">
-
+                </div>            
               </div>
+
+             
 
               <!-- <div class="form-group">
                 <label for="dp">I'm available on or after</label>
@@ -198,7 +232,8 @@
               <label for="message1" class="">Note</label>
               <textarea class="form-control" name="message1" id="message1" placeholder="Anything else?"></textarea>
             </div>
-            <p class="card-footer-text">For different dates with different time, select date-1 and time-1, then date-2 and time-2 and so on. <br/> Leave a note, for special instructions or requests</p>
+            <p class="card-footer-text">Specify details for the selected service category. <br/> Leave a note, for special instructions or requests </p>
+           
 
           </section>
           
@@ -265,8 +300,8 @@
             <div class="media">
               <div class="uneek-wizard-step-icon"> <i class="zmdi zmdi-check-all"></i> </div>
               <div class="media-body">
-                <h5 class="uneek-wizard-step-title">Our Location</h5>
-                <p class="uneek-wizard-step-subtitle">We are Located at.</p>
+                <h5 class="uneek-wizard-step-title"> Finish </h5>
+                <p class="uneek-wizard-step-subtitle"> Last Step </p>
               </div>
             </div>
           </h3>
