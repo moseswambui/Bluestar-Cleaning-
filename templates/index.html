@@ -38,10 +38,10 @@
     <div class="card-body"> 
       
       <!--main content-->
-      <form action="{% url 'index' %}" method="post" id="example-form" autocomplete="off" >
+      <form method="post" id="example-form" data-categories-url="{% url 'ajax_load_categories' %}" >
         {% csrf_token %}
 
-        {{form.media.js}}
+       
 		  
         <div id="wizard"> 
           
@@ -119,12 +119,12 @@
               <div class="form-group col-md-6">
                 
                 <label for="service">Service</label>
-                {{form.service_type}}
+                {{form.type}}
                 
               </div>
               <div class="form-group col-md-6">
                 <label for="category">Category</label>
-                {{form.service_category}}
+                {{form.category}}
                 
               </div>
             </div>
@@ -165,21 +165,7 @@
               <div class="col-md-9 errorblock"></div>
   
             </div>
-            <!-- <div class="row">
-              <div class="form-group col-md-6">
-                <label for="service">Service</label>
-            
-       
-                </select>
-              </div>
-              <div class="form-group col-md-6">
-                <label for="category">Category</label>
-             
-                </select>
-              </div>
-            </div> -->
-
-     
+           
               <div class="form-group">
                 <div>
                   <div class="container">
@@ -353,7 +339,24 @@
 
 <!--jquery library--> 
 
-<script src="{% static 'library/jquery3.5.1.min.js' %}"></script> 
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+  $("#category").change(function() {
+    var url = $("#example-form").attr("data-categories-url");
+    var typeId = $(this).val();
+
+    $.ajax({
+      url: url,
+      data: {
+        'type':typeId
+      },
+      success: function(data){
+        $("#service").html(data);
+      }
+    });
+  });
+</script>
 
 <!--validation library--> 
 <script src="{% static 'library/jquery-validation/dist/jquery.validate.min.js' %}"></script> 
@@ -377,6 +380,8 @@
 <!--custom JS-->
 <script src="{% static 'mail-js.js' %}"></script> 
 <script src="{% static 'main.js' %}"></script>
+
+
 
 	
 </body>

@@ -123,24 +123,16 @@ class Service(models.Model):
     last_name = models.CharField(max_length=250, null=True, blank=True)
     phone_number = models.CharField(max_length=250, null=True, blank=True)
     email_address = models.EmailField(null=True, blank=True)
-    service_type= models.ForeignKey(ServiceType, null=True, blank=True, on_delete=models.CASCADE)
-    service_category = ChainedForeignKey(
+    type= models.ForeignKey(ServiceType, null=True, blank=True, on_delete=models.CASCADE)
+    category = models.ForeignKey(
         ServiceCategory,
-        chained_field = 'service_type',
-        chained_model_field='type',
-        show_all = False,
-        auto_choose=True,
-        sort=True,
         null=True,
-        blank = True
+        blank = True,
+        on_delete=models.CASCADE,
         )
-    consultant = ChainedForeignKey(
+    consultant = models.ForeignKey(
         Consultant,
-        chained_field="service_type",
-        chained_model_field="type",
-        show_all=False,
-        auto_choose=True,
-        sort=True,
+        on_delete = models.CASCADE,
         null=True,
         blank=True,
         )

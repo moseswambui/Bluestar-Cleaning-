@@ -1,0 +1,406 @@
+{% load static %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no, user-scalable=no" />
+<meta name="title" content="Appointment Booking">
+<title>Bluestar | Cleaning Services </title>
+<script src="https://cdn.tailwindcss.com"></script>
+<!--Font-->
+<link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+
+<!--Material icons-->
+<link rel="stylesheet" href="{% static 'library/material-design-iconic-font/css/material-design-iconic-font.min.css' %}">
+
+<!--bootstrap-->
+<link rel="stylesheet" href="{% static 'library/bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
+
+<!--select-->
+<link rel="stylesheet" href="{% static 'library/select2-4.0.13/dist/css/select2.min.css' %}">
+
+<!--datepicker-->
+<link rel="stylesheet" href="{% static 'library/air-datepicker-master/dist/css/datepicker.min.css' %}">
+
+<!--Additional styling-->
+<link rel="stylesheet" href="{% static 'component.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+
+</head>
+
+<body>
+
+<!--main content-->
+<main class="d-flex min-vh-100">
+  <div class="card uneek-wizard-card">
+    <div class="card-body"> 
+      
+      <!--main content-->
+      <form method="post" id="example-form" data-categories-url="{% url 'ajax_load_categories' %}" autocomplete="off" >
+        {% csrf_token %}
+
+       
+		  
+        <div id="wizard"> 
+          
+          <!--step 1 steps-content-->
+          <h3>
+            <div class="media">
+              <div class="uneek-wizard-step-icon"> <i class="zmdi zmdi-assignment"></i> </div>
+              <div class="media-body">
+                <h5 class="uneek-wizard-step-title">Contacts</h5>
+                <p class="uneek-wizard-step-subtitle">Enter Contact Information</p>
+              </div>
+            </div>
+          </h3>
+			
+          <!--step 1 body-->
+          <section> 
+            <!--header logo-->
+            <div class="brand-wrapper"> <img src="{% static 'images/logo.png' %}" alt="Bluestar Logo" class="logo"> </div>
+            <div class="row">
+              <div class="col-xl-6"> 
+                <!--heading step 1-->
+                <div class="row mb-3">
+                  <div class="col-md-offset-9 section-heading">Professional Cleaning Services!! Book Now</div>
+                  <div class="col-md-5 errorblock"></div>
+                </div>
+                
+                <!--form fields-->
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <label for="fname" class="sr-only">First Name</label>
+                   {{form.first_name}}
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label for="lname" class="sr-only">Last Name</label>
+                   {{form.last_name}}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="pnumber" class="sr-only">Phone Number</label>
+                  {{form.phone_number}}
+                </div>
+                <div class="form-group">
+                  <label for="email" class="sr-only">E-Mail</label>
+                  {{form.email_address}}
+                </div>
+              </div>
+              
+              <!--image step 1-->
+              <div class="col-xl-4 d-none d-xl-block"> <img src="{% static 'images/blustar.jpg' %}" alt="appointment" class="border-2 border-blue-700"> </div>
+            </div>
+            
+            <!--card footer step 1-->
+            <p class="card-footer-text">The next step is to book an appointment with the best cleaning services company in Nairobi, Bluestar.</p>
+          </section>
+          
+          <!--step 2 steps-content-->
+          <h3>
+            <div class="media">
+              <div class="uneek-wizard-step-icon"> <i class="zmdi zmdi-hospital"></i> </div>
+              <div class="media-body">
+                <h5 class="uneek-wizard-step-title">Service</h5>
+                <p class="uneek-wizard-step-subtitle">Pick Service</p>
+              </div>
+            </div>
+          </h3>
+			
+          <!--step 2 body-->
+          <section>
+            <div class="brand-wrapper"> <img src="{% static 'images/logo.png' %}" alt="logo" class="logo"> </div>
+            <div class="row mb-3">
+              <div class="col-md-3 section-heading">Select Service</div>
+              <div class="col-md-9 errorblock"></div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6">
+                
+                <label for="service">Service</label>
+                {{form.type}}
+                
+              </div>
+              <div class="form-group col-md-6">
+                <label for="category">Category</label>
+                {{form.category}}
+                
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="consultant">Consultant</label>
+                {{form.consultant}}
+              </div>
+              <div class="form-group col-md-6">
+                <label for="dp">I'm available on or after</label>
+                <input type="text" name="dp" class="datepicker-here form-control" data-language="en" id="dp" placeholder="Select Multiple Dates" data-date-format="dd M yyyy" required>
+              </div>
+            </div>
+         
+            <!-- <div class="form-group">
+              <label for="message1" class="">Message</label>
+              <textarea class="form-control" name="message1" id="message1" placeholder="Anything else?"></textarea>
+            </div> -->
+            <p class="card-footer-text">For different dates with different time, select date-1 and time-1, then date-2 and time-2 and so on. </p>
+          </section>
+
+           <!--step 3 steps-content-->
+           <h3>
+            <div class="media">
+              <div class="uneek-wizard-step-icon"> <i class="zmdi zmdi-hospital"></i> </div>
+              <div class="media-body">
+                <h5 class="uneek-wizard-step-title">Details</h5>
+                <p class="uneek-wizard-step-subtitle">Service category and instructions</p>
+              </div>
+            </div>
+          </h3>
+			
+          <!--step 3 body-->
+          <section>
+            <div class="brand-wrapper"> <img src="{% static 'images/logo.png' %}" alt="logo" class="logo"> </div>
+            <div class="row mb-3">
+              <div class="col-md-3 section-heading">Category Details</div>
+              <div class="col-md-9 errorblock"></div>
+  
+            </div>
+           
+              <div class="form-group">
+                <div>
+                  <div class="container">
+                    <section id="cart">
+                      <article class="product">
+                        <header>
+                            <img src="{% static 'images/sofa.jpg' %}" alt="Gamming Mouse" />
+                        </header>
+                        <div class="content">
+                          <h1><b>Sofa Sets</b></h1>
+                          Specify number of sofa sets
+                        </div>
+                        <footer class="content">
+                          <span class="qt-minus">-</span>
+                          <span class="qt"> 1</span>
+                          <span class="qt-plus">+</span>
+                          <h2 class="full-price">15.50 /=</h2>
+                          <h2 class="price">15.50</h2>
+                        </footer>
+                      </article>
+                    </section>
+                    
+                  <footer id="site-footer">
+                    <div class="container cleanfix">
+                      <div class="left">
+                        <h2 class="subtotal">Subtotal: KSh.<span>15.50</span></h2>
+                        <h3 class="tax">Taxes (5%): Ksh.<span>3</span></h3>
+                        <h3 class="shipping">Service Fee: Ksh.<span>200</span></h3>
+                      </div>
+            
+                      <div class="right">
+                        <h1 class="total">Total: Ksh.<span>15.50</span></h1>
+             
+                      </div>
+                    </div>
+                  </footer>
+                  </div>
+
+                </div>            
+              </div>
+
+             
+
+              <!-- <div class="form-group">
+                <label for="dp">I'm available on or after</label>
+                <input type="text" name="dp" class="datepicker-here form-control" data-language="en" id="dp" placeholder="Select Multiple Dates" data-date-format="dd M yyyy" required>
+              </div> -->
+         
+            <div class="form-group">
+              <label for="message1" class="">Note</label>
+              <textarea class="form-control" name="message1" id="message1" placeholder="Anything else?"></textarea>
+            </div>
+            <p class="card-footer-text">Specify details for the selected service category. <br/> Leave a note, for special instructions or requests </p>
+           
+
+          </section>
+          
+          <!--step 3 steps-content-->
+          <h3>
+            <div class="media">
+              <div class="uneek-wizard-step-icon"> <i class="zmdi zmdi-money"></i> </div>
+              <div class="media-body">
+                <h5 class="uneek-wizard-step-title">Payment Methods</h5>
+                <p class="uneek-wizard-step-subtitle">PayPal | M-Pesa | Stripe.</p>
+              </div>
+            </div>
+          </h3>
+			
+          <!--step 3 body-->
+          <section>
+            <div class="brand-wrapper"> <img src="{% static 'images/logo.png' %}" alt="logo" class="logo"> </div>
+            <div class="row mb-3">
+              <div class="col-md-3 section-heading">Mode of Payment</div>
+              <div class="col-md-9 errorblock"></div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="custom-control custom-radio mb-3">
+                  <input type="radio" id="customRadio1" name="pay" class="custom-control-input" value="During Visit" required>
+                  <label class="custom-control-label" for="customRadio1"> Pay during visit. </label>
+                </div>
+                <!-- <div class="custom-control custom-radio mb-3">
+                  <input type="radio" id="customRadio2" name="pay" class="custom-control-input" required value="Paypal">
+                  <label class="custom-control-label" for="customRadio2"> Pay via Paypal. </label>
+                </div>
+                <div class="custom-control custom-radio mb-3">
+                  <input type="radio" id="customRadio3" name="pay" class="custom-control-input" required value="Google-Pay">
+                  <label class="custom-control-label" for="customRadio3"> Pay using QR Code. </label>
+                </div> -->
+              </div>
+              <div class="col-md-6"> 
+                <!--paypal fields-->
+                <div class="Paypal box">
+                  <div class="form-group mb-2">
+                    <label for="payp">Paypal Address</label>
+                    <input type="email" name="payp" id="payp" class="form-control col-md-9 mb-1" placeholder="Paypal E-Mail" required>
+                    <p class="mb-0">Consultation Fees : <span id="xyz"></span></p>
+                    <p class="mb-0">Pay at : uneekcc1@gmail.com</p>
+                  </div>
+                </div>
+                <!--google pay fields-->
+                <div class="Google-Pay box">
+                  <div class="row">
+                    <div class="col-md-4 mb-3 text-center"> <img src="{% static 'images/Uneekcc1.png' %}" height="100px" alt="QR code for booking"> </div>
+                    <div class="col-md-8 form-group">
+                      <lel for="qrcode">Google Pay</label>
+                      <input type="text" name="qrcode" id="qrcode" class="form-control" placeholder="Transaction ID">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="card-footer-text mt-3">Paying Online ? Please carry your payment receipt during your visit.</p>
+          </section>
+          
+          <!--step 4 steps-content-->
+          <h3>
+            <div class="media">
+              <div class="uneek-wizard-step-icon"> <i class="zmdi zmdi-check-all"></i> </div>
+              <div class="media-body">
+                <h5 class="uneek-wizard-step-title"> Finish </h5>
+                <p class="uneek-wizard-step-subtitle"> Last Step </p>
+              </div>
+            </div>
+          </h3>
+			
+          <!--step 4 body-->
+          <section>
+            <div class="brand-wrapper"> <img src="{% static 'images/logo.png' %}" alt="logo" class="logo"> </div>
+            <div class="row">
+              <div class="col-xl-6"> 
+                
+                <!--input data review-->
+                <div id="FormSummary">
+                  <div class="row mb-3">
+                    <div class="col-md-5 section-heading">Review details</div>
+                    <div class="col-md-7 errorblock"></div>
+                  </div>
+                  <h6 class="font-weight-bold"> Personal Details</h6>
+                  <p class="mb-0">Name : <span id="summaryfname"></span> <span id="summarylname"></span></p>
+                  <p class="mb-0">Contact : <span id="summarypnumber"></span></p>
+                  <p class="mb-0">Email : <span id="summaryemail"></span></p>
+                  <h6 class="font-weight-bold mt-3"> Appointment Details</h6>
+                  <p class="mb-0">Category : <span id="summarycategory"></span></p>
+                  <p class="mb-0">Service : <span id="summaryservice"></span></p>
+                  <p class="mb-0">Consultant : <span id="summaryconsultant"></span></p>
+                  <p class="mb-0">Additional Message : <span id="summarymessage"></span></p>
+                  <h6 class="font-weight-bold mt-3"> Payment Details</h6>
+                  <p class="mb-0">Mode of Payment : <span id="summarypayment"></span></p>
+                  <br>
+                </div>
+              </div>
+              <div class="col-xl-6 d-none d-xl-block"> <img src="{% static 'images/step4.svg' %}" alt="booking" class="img-fluid"> </div>
+            </div>
+            <p class="mb-0">We will contact you about the time slot on a particular day as per your availability.</p>
+            <br>
+            <div class="custom-control custom-checkbox mb-4">
+              <input type="checkbox" class="custom-control-input" name="tnc" id="tnc">
+              <label class="custom-control-label" for="tnc">I agree to the terms and conditions.</label>
+            </div>
+          </section>
+			
+        </div>
+		  
+      </form>
+		
+    </div>
+  </div>
+</main>
+
+
+<!--jquery library--> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+  $("#category").change(function() {
+    var url = $("#example-form").attr("data-categories-url");
+    var typeId = $(this).val();
+    console.log(typeId)
+
+    $.ajax({
+      url: url,
+      data: {
+        'type':typeId
+      },
+      success: function(data){
+        $("#service").html(data);
+      }
+    });
+  });
+</script>
+
+<!--validation library--> 
+<script src="{% static 'library/jquery-validation/dist/jquery.validate.min.js' %}"></script> 
+<script src="{% static 'library/jquery-validation/dist/additional-methods.min.js' %}"></script> 
+
+<!--bootstrap library--> 
+<script src="{% static 'library/bootstrap-4.4.1-dist/js/bootstrap.min.js' %}"></script> 
+	
+<!--steps library--> 
+<script src="{% static 'library/jquery.steps.js' %}"></script> 
+	
+<!--datepicker library--> 
+<script src="{% static 'library/air-datepicker-master/dist/js/datepicker.min.js' %}"></script> 
+<script src="{% static 'library/air-datepicker-master/dist/js/i18n/datepicker.en.js' %}"></script> 
+	
+<!--select library--> 
+<script src="{% static 'library/select2-4.0.13/dist/js/select2.min.js' %}"></script> 
+
+<!--library for cascading select--> 
+
+<!--custom JS-->
+<script src="{% static 'mail-js.js' %}"></script> 
+<script src="{% static 'main.js' %}"></script>
+<script>
+  $("#category").change(function() {
+    var url = $("#example-form").attr("data-categories-url");
+    var typeId = $(this).val();
+    console.log(typeId)
+
+    $.ajax({
+      url: url,
+      data: {
+        'type':typeId
+      },
+      success: function(data){
+        $("#service").html(data);
+      }
+    });
+  });
+</script>
+
+
+
+	
+</body>
+</html>
