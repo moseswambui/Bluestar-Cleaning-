@@ -1,0 +1,372 @@
+body {
+	font-family: 'Karla', sans-serif;
+	background-color: #ececec;
+	background-image: linear-gradient(to left bottom, #022541 , #004876, #006dc4);
+	background-size: 504px 100%;
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+main {
+	padding-left: 83px;
+	padding-right: 382px;
+	padding-top: 24px;
+	padding-bottom: 24px;
+	overflow: auto;
+}
+
+
+/*card*/
+
+.uneek-wizard-card {
+	width: 100%;
+	border-radius: 23px;
+	background-color: #ffffff;
+	min-height: 597px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+
+/* Wizard */
+
+.wizard .audible {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.wizard .steps {
+	position: fixed;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	padding-left: 92px;
+	width: 504px;
+}
+
+.wizard .steps>ul {
+	list-style: none;
+	padding-left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-bottom: 0;
+	z-index: 1;
+	height: 100%;
+}
+
+.wizard .steps>ul li .media {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.wizard .steps>ul li .uneek-wizard-step-icon {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background-color: #ffffff;
+	font-size: 20px;
+	color: rgba(0, 0, 0, 0.54);
+	text-align: center;
+	line-height: 60px;
+	margin-right: 20px;
+}
+
+.wizard .steps>ul li .uneek-wizard-step-title {
+	font-size: 20px;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+.wizard .steps>ul li .uneek-wizard-step-subtitle {
+	font-size: 15px;
+	line-height: 1.6;
+	color: #ffffff;
+	font-weight: normal;
+	opacity: 0.4;
+	width: 271px;
+}
+
+.wizard .steps>ul li.current .uneek-wizard-step-icon,
+.wizard .steps>ul li.done .uneek-wizard-step-icon {
+	background-color: #be1e2d;
+	color: white;
+}
+
+.wizard .content .title {
+	display: none;
+}
+
+.wizard .content .logo {
+	margin-bottom: 11px;
+}
+
+.wizard .content .section-heading {
+	font-size: 20px;
+	color: #030303;
+}
+
+.wizard .content p {
+	font-size: 14px;
+	line-height: 1.43;
+	color: #6b6767;
+}
+
+.wizard .content .form-group {
+	margin-bottom: 23px;
+}
+
+.wizard .content .form-control {
+	padding: 16px 25px;
+	min-height: 50px;
+	border-radius: 4px;
+	font-size: 15px;
+	border: solid 1px #ececec;
+}
+
+.wizard .content .form-control::-webkit-input-placeholder {
+	color: #919aa3;
+}
+
+.wizard .content .form-control::-moz-placeholder {
+	color: #919aa3;
+}
+
+.wizard .content .form-control:-ms-input-placeholder {
+	color: #919aa3;
+}
+
+.wizard .content .form-control::-ms-input-placeholder {
+	color: #919aa3;
+}
+
+.wizard .content .form-control::placeholder {
+	color: #919aa3;
+}
+
+.wizard .actions>ul {
+	list-style: none;
+	padding-left: 0;
+	display: flex;
+	margin-bottom: 0;
+}
+
+.wizard .actions li a {
+	display: inline-block;
+	border-radius: 6px;
+	background-color: #be1e2d;
+	padding: 16px 30px;
+	margin-right: 20px;
+	font-size: 15px;
+	border: 0 !important;
+	font-weight: bold;
+	color: white;
+}
+
+.wizard .actions li a:hover {
+	text-decoration: none;
+}
+
+.wizard .actions li.disabled {
+	display: none;
+}
+
+.actions {
+	display: block;
+}
+
+button:focus,
+.btn-primary.focus,
+.btn:focus {
+	outline: none !important;
+	box-shadow: 0 !important;
+}
+
+*:focus {
+	outline: none !important;
+	box-shadow: 0 !important;
+}
+
+.form-control:focus {
+	box-shadow: none !important;
+	outline: 0 !important;
+}
+
+.card-footer-text {
+	margin-bottom: 30px;
+}
+
+
+/*for select2*/
+
+.select2 {
+	width: 100% !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+	line-height: 50px !important;
+	padding-left: 25px !important;
+}
+
+.select2-container--default .select2-selection--single {
+	height: 50px !important;
+	border: solid 1px #ececec !important;
+	font-size: 15px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+	top: 75% !important;
+	margin-top: 2px !important;
+}
+
+.select2-selection__rendered {
+	display: none;
+}
+
+
+/*paypal and google pay box*/
+
+.box {
+	display: none;
+}
+
+
+/*ERROR ON FOCUS STYLING*/
+
+.error {
+	border: solid 1px #ececec !important;
+}
+
+.error:focus {
+	border: solid 1px #ececec !important;
+}
+
+.steps ul li {
+	border: 0 !important;
+}
+
+
+/*Error block*/
+
+.errorblock {
+	color: #f44336;
+	line-height: 32px !important;
+}
+
+@media (max-width: 991px) {
+	main {
+		padding-right: 182px;
+	}
+}
+
+@media (max-width: 767px) {
+	main {
+		padding: 24px;
+	}
+}
+
+@media (max-width: 767px) {
+	.uneek-wizard-card {
+		margin-top: 25px;
+		margin-bottom: 0;
+		min-height: auto;
+	}
+}
+
+.uneek-wizard-card .card-body {
+	padding: 80px 90px 65px 80px;
+}
+
+@media (max-width: 767px) {
+	.uneek-wizard-card .card-body {
+		padding: 50px 20px 20px;
+	}
+}
+
+@media (max-width: 991px) {
+	.wizard .steps {
+		width: 310px;
+	}
+}
+
+@media (max-width: 767px) {
+	.wizard .steps {
+		position: absolute;
+		bottom: calc(100% - 25px);
+		padding-left: 0;
+		width: 100%;
+		top: auto;
+		left: 0;
+		right: auto;
+	}
+}
+
+@media (max-width: 767px) {
+	.wizard .steps>ul {
+		flex-direction: row;
+	}
+}
+
+.wizard .steps>ul li a {
+	display: inline-block;
+}
+
+.wizard .steps>ul li a:hover {
+	text-decoration: none;
+}
+
+@media (max-width: 767px) {
+	.wizard .steps>ul li {
+		margin-right: 12px;
+	}
+	.wizard .steps>ul li:last-child {
+		margin-right: 0;
+	}
+}
+
+@media (max-width: 991px) {
+	.wizard .steps>ul li .media {
+		align-items: center;
+	}
+}
+
+@media (max-width: 767px) {
+	.wizard .steps>ul li .media {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
+@media (max-width: 767px) {
+	.wizard .steps>ul li .uneek-wizard-step-icon {
+		margin-right: 0;
+		height: 50px;
+		width: 50px;
+		line-height: 50px;
+	}
+}
+
+@media (max-width: 767px) {
+	.wizard .steps>ul li .uneek-wizard-step-title {
+		display: none;
+	}
+}
+
+@media (max-width: 991px) {
+	.wizard .steps>ul li .uneek-wizard-step-subtitle {
+		display: none;
+	}
+}
+
+@media (max-width: 767px) {
+	.uneek-wizard-btn {
+		padding: 12px 24px;
+	}
+}

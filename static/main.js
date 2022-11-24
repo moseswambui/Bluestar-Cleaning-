@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 	//DATE PICKER
 	$('#dp').datepicker({
-		
+
 		//options for date picker
 		language: 'en',
 		multipleDates: 3,
@@ -16,7 +16,7 @@ $(document).ready(function () {
 		timepicker: true,
 		dateTimeSeparator: '-',
 		clearButton: true,
-		
+
 		//set min and max time for booking 9=9:00AM, 17=5:59PM
 		minHours: 9,
 		maxHours: 17,
@@ -89,7 +89,7 @@ $(document).ready(function () {
 	});
 
 
-//////CASCASING SELECT START//////
+	//////CASCASING SELECT START//////
 
 	//ko binding handler
 	ko.bindingHandlers.select2 = {
@@ -115,7 +115,7 @@ $(document).ready(function () {
 		self.data = self;
 		self.text = data.text;
 		self.childOptions = data.childOptions;
-		
+
 	}
 
 	//fill our models with example data
@@ -179,34 +179,34 @@ $(document).ready(function () {
 				new cascadingOption({
 					text: 'After Renovation Cleaning',
 					childOptions: [{
-							text: 'Humphrey Juma)'
-						},
-						
+						text: 'Humphrey Juma)'
+					},
+
 					]
 				}),
 				new cascadingOption({
 					text: 'Occupied Office Cleaning',
 					childOptions: [{
-							text: 'Humphrey Juma)'
-						},
-						
+						text: 'Humphrey Juma)'
+					},
+
 					]
 				}),
 				new cascadingOption({
 					text: 'New Office Cleaning',
 					childOptions: [{
-							text: 'any'
-						},
-					
+						text: 'any'
+					},
+
 					]
 				}),
 
 				new cascadingOption({
 					text: 'Pre/Post Tenancy Cleaning',
 					childOptions: [{
-							text: 'any'
-						},
-					
+						text: 'any'
+					},
+
 					]
 				})
 			]
@@ -214,42 +214,42 @@ $(document).ready(function () {
 
 
 		// Add this part if you need to add more options ---- START
-		
-		
+
+
 		var h2 = new cascadingOption({
 			text: 'House Cleaning',
 			childOptions: [
 				new cascadingOption({
 					text: 'Post Construction Cleaning',
 					childOptions: [{
-							text: 'any'
-						},
-						
+						text: 'any'
+					},
+
 					]
 				}),
 
 				new cascadingOption({
 					text: 'After Renovation Cleaning',
 					childOptions: [{
-							text: 'any'
-						},
-						
+						text: 'any'
+					},
+
 					]
 				}),
 				new cascadingOption({
 					text: 'Occupied House Cleaning',
 					childOptions: [{
-							text: 'any'
-						},
-					
+						text: 'any'
+					},
+
 					]
 				}),
 				new cascadingOption({
 					text: 'Pre/Post Tenancy Cleaning',
 					childOptions: [{
-							text: 'any'
-						},
-						
+						text: 'any'
+					},
+
 					]
 				})
 			]
@@ -261,51 +261,51 @@ $(document).ready(function () {
 				new cascadingOption({
 					text: 'Cockroaches Control',
 					childOptions: [{
-							text: 'any'
-						},
-						
+						text: 'any'
+					},
+
 					]
 				}),
 
 				new cascadingOption({
 					text: 'Bedbugs Control',
 					childOptions: [{
-							text: 'any'
-						},
-						
+						text: 'any'
+					},
+
 					]
 				}),
 				new cascadingOption({
 					text: 'Mosquitoes Control',
 					childOptions: [{
-							text: 'any'
-						},
-						
+						text: 'any'
+					},
+
 					]
 				}),
 				new cascadingOption({
 					text: 'Termites Control',
 					childOptions: [{
-							text: 'Any'
-						},
-						
+						text: 'Any'
+					},
+
 					]
 				}),
 				new cascadingOption({
 					text: 'Flies Control',
 					childOptions: [{
-							text: 'any'
-						},
-						
+						text: 'any'
+					},
+
 					]
 				}),
 				new cascadingOption({
 					text: 'General Pests',
 					childOptions: [{
-							text: 'any'
-						},
-						
-						
+						text: 'any'
+					},
+
+
 					]
 				})
 			]
@@ -315,7 +315,7 @@ $(document).ready(function () {
 		// END
 
 		//return values
-		return [uom, mdx, h2,pstrc];
+		return [uom, mdx, h2, pstrc];
 
 	}
 
@@ -339,7 +339,7 @@ $(document).ready(function () {
 		if (viewModel.selectedService()) {
 			var type = ko.utils.arrayFirst(viewModel.togaServices(), function (item) {
 				return item.text === viewModel.selectedService();
-				
+
 			});
 			return type.childOptions;
 		}
@@ -347,6 +347,6 @@ $(document).ready(function () {
 
 	ko.applyBindings(viewModel);
 
-//////CASCASING SELECT END//////
+	//////CASCASING SELECT END//////
 
 });	//DOCUMENT END//
