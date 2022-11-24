@@ -18,8 +18,12 @@ class FormAdmin(admin.ModelAdmin):
     search_fields = ("name",)
     ordering = ("name",)
 
+class CategoryAdminInline(admin.TabularInline):
+    model = ServiceCategory
+    list_display = ('name', 'price', 'type')
 class ServiceTypeAdmin(admin.ModelAdmin):
     list_display = ("name", "description", "form")
+    inlines = [CategoryAdminInline]
 
 class ServiceVariationAdminInlines(admin.TabularInline):
     model = ServiceVariation

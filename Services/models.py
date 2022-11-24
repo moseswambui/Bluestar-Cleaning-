@@ -1,6 +1,7 @@
 from unicodedata import category
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from smart_selects.db_fields import ChainedForeignKey, GroupedForeignKey
 
 class FormField(models.Model):
     key = models.CharField(max_length=100, null=True, blank=True)
@@ -85,6 +86,7 @@ class ServiceCategory(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(default="")
     price = models.IntegerField(null=True, blank=True)
+    #image = models.ImageField(null=True, blank=True)
     code = models.CharField(max_length=100, default="")
     type = models.ForeignKey(ServiceType,blank=True, null=True, related_name="categories", on_delete=models.PROTECT)
     slug = None
@@ -113,6 +115,7 @@ class Consultant(models.Model):
 class ExtraServiceInfo(models.Model):
     category = models.ForeignKey(ServiceCategory, null=True, blank=True, on_delete=models.CASCADE)
     price = models.IntegerField(null=True, blank=True)
+    unit_charges = models.IntegerField(null=True, blank=True)
 
 
 class Service(models.Model):  
@@ -121,8 +124,26 @@ class Service(models.Model):
     phone_number = models.CharField(max_length=250, null=True, blank=True)
     email_address = models.EmailField(null=True, blank=True)
     service_type= models.ForeignKey(ServiceType, null=True, blank=True, on_delete=models.CASCADE)
-    service_category = models.ForeignKey(ServiceCategory, null=True, blank=True, on_delete=models.CASCADE)
-    consultant = models.ForeignKey(Consultant, null=True, blank=True, on_delete=models.CASCADE)
+    service_category = ChainedForeignKey(
+        ServiceCategory,
+        chained_field = 'service_type',
+        chained_model_field='type',
+        show_all = False,
+        auto_choose=True,
+        sort=True,
+        null=True,
+        blank = True
+        )
+    consultant = ChainedForeignKey(
+        Consultant,
+        chained_field="service_type",
+        chained_model_field="type",
+        show_all=False,
+        auto_choose=True,
+        sort=True,
+        null=True,
+        blank=True,
+        )
     service_date = models.DateField(null=True, blank=True)
 
 class ServiceVariationManager(models.Manager):

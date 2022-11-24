@@ -3,7 +3,7 @@ from .forms import AppointmentOrderForm,ServiceForm
 from . models import *
 
 def Index(request):
-    type = ServiceType.objects.all()
+    types = ServiceType.objects.all()
     form = ServiceForm()
 
     if request.method == "POST":
@@ -22,7 +22,7 @@ def Index(request):
     print(type)
     context = {
         'form':form,
-        'type':type
+        'types':types
     }
 
     return render(request, 'index.html', context)
@@ -35,15 +35,6 @@ def Myform(request):
     }
     return render(request, 'forms.html', context)
 
-def load_categorties(request):
-    type_id = request.GET.get('service_type.id')
-    categories = ServiceCategory.objects.filter(
-        type_id = type_id
-        ).order_by('name')
 
-    context = {
-        'categories':categories
-    }
-    return render(request, 'service_dropdown_list.html', context)
 
 
