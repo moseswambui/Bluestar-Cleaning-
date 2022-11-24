@@ -2,7 +2,6 @@
 //Wizard Init
 //FOR WIZARD AND VALIDATIONS
 
-/** 
 $(document).ready(function () {
 	'use strict';
 	//defining form
@@ -176,7 +175,21 @@ $(document).ready(function () {
 		}
 
 	});
+	$("#category").change(function() {
+		var url = $("#example-form").attr("data-categories-url");
+		var typeId = $(this).val();
+		console.log(typeId)
+	
+		$.ajax({
+		  url: url,
+		  data: {
+			'type':typeId
+		  },
+		  success: function(data){
+			$("#service").html(data);
+		  }
+		});
+	  });
 
 
 })
-*/
