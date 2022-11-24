@@ -1,6 +1,8 @@
 // JavaScript Document
 //Wizard Init
 //FOR WIZARD AND VALIDATIONS
+
+/** 
 $(document).ready(function () {
 	'use strict';
 	//defining form
@@ -177,3 +179,4 @@ $(document).ready(function () {
 
 
 })
+*/

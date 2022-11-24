@@ -57,18 +57,16 @@ class AppointmentOrderForm(forms.ModelForm):
 class ServiceForm(forms.ModelForm):
     class Meta:
         model = Service
-        fields = [
+        fields = (
             'first_name',
             'last_name',
             'phone_number',
             'email_address',
-            'service_type',
-            'service_category',
+            'type',
+            'category',
             'consultant',
             'service_date',
-           
-           
-        ]
+        )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -103,12 +101,12 @@ class ServiceForm(forms.ModelForm):
             'class':'form-control',
             'placeholder':'Your E-Mail Address',
         })
-        self.fields['service_type'].widget.attrs.update({
+        self.fields['type'].widget.attrs.update({
             'type':'service',
             'name':'category',
             'id':'category',
         })
-        self.fields['service_category'].widget.attrs.update({
+        self.fields['category'].widget.attrs.update({
             'type':'select',
             'name':'service',
             'id':'service',
@@ -133,5 +131,19 @@ class ServiceForm(forms.ModelForm):
             'class':'datepicker-here form-control',
             'placeholder':'Select Multiple Dates',
         })
+
+        self.fields['category'].queryset = ServiceCategory.objects.none()
+
+        if "type" in self.data:
+            try:
+                type_id = int(self.data.get("type"))
+                print(type_id)
+                self.fields['category'].queryset = ServiceCategory.objects.filter(type_id=type_id).order_by('name')
+
+            except (ValueError, TypeError):
+                pass
+
+        elif self.instance.id:
+            self.fields['category'].queryset = self.instance.type.category_set.order_by('name')
 
         
