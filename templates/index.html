@@ -43,6 +43,7 @@
         data-extra-info-url="{% url 'ajax_load_extra_info' %}"
         data-pricing-url ="{% url 'ajax_load_pricing' %}"
         data-name-url ="{% url 'ajax_load_pricing' %}"
+        data-consultants-url = "{% url 'ajax_load_consultants' %}"
 
        >
         {% csrf_token %}
@@ -192,8 +193,8 @@
                           <span class="qt-minus">-</span>
                           <span class="qt"> 1</span>
                           <span class="qt-plus">+</span>
-                          <h2 class="full-price">{{pricing}}/=</h2>
-                          <h2 id="pricing" class="price">{{pricing}}</h2>
+                          <h2 id="pricing" class="full-price">{{pricing}} /=</h2>
+                          <h2 id="" class="price">15 /=</h2>
                         </footer>
                       </article>
                     </section>

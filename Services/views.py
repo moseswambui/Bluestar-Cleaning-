@@ -35,8 +35,9 @@ def load_categories(request):
     return render(request, "Services/category_dropdown_list.html", context)
 
 def load_consultants(request):
-    consultant_id = request.GET.get("consultant")
-    consultants = Consultant.objects.filter(consultant_id=consultant_id).order_by("name")
+    type_id = request.GET.get("type")
+    consultants = Consultant.objects.filter(type_id=type_id).order_by("name")
+    print(consultants)
     context = {
         'consultants':consultants
     }

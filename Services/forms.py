@@ -152,17 +152,16 @@ class ServiceForm(forms.ModelForm):
         elif self.instance.id:
             self.fields['category'].queryset = self.instance.type.category_set.order_by('name')
 
-
-        if "category" in self.data:
+        self.fields['consultant'].queryset = Consultant.objects.none()
+        if "type" in self.data:
             try:
-                category_id = int(self.data.get("category"))
-                print(category_id)
-                self.fields['serviceinfo'].queryset = ExtraServiceInfo.objects.filter(category_id=category_id).order_by('name')
+                type_id = int(self.data.get("type"))
+                self.fields['consultant'].queryset = Consultant.objects.filter(type_id=type_id).order_by('name')
 
             except (ValueError, TypeError):
                 pass
 
         elif self.instance.id:
-           self.fields['serviceinfo'].queryset = self.instance.type.serviceinfo_set.order_by('name')
+           self.fields['consultant'].queryset = self.instance.type.consultant_set.order_by('name')
 
         

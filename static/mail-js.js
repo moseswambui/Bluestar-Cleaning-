@@ -220,16 +220,16 @@ $(document).ready(function () {
 		});
 	  });
 	  $("#service").change(function() {
-		var url = $("#example-form").attr("data-name-url");
-		var serviceId = $(this).val();
+		var url = $("#example-form").attr("data-consultants-url");
+		var typeId = $(this).val();
 	
 		$.ajax({
 		  url: url,
 		  data: {
-			'service':serviceId
+			'type':typeId
 		  },
 		  success: function(data){
-			$("#name").html(data);
+			$("#consultant").html(data);
 		  }
 		});
 	  });
