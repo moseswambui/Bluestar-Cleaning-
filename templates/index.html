@@ -38,7 +38,13 @@
     <div class="card-body"> 
       
       <!--main content-->
-      <form method="post" id="example-form" data-categories-url="{% url 'ajax_load_categories' %}" >
+      <form method="post" id="example-form" 
+        data-categories-url="{% url 'ajax_load_categories' %}"
+        data-extra-info-url="{% url 'ajax_load_extra_info' %}"
+        data-pricing-url ="{% url 'ajax_load_pricing' %}"
+        data-name-url ="{% url 'ajax_load_pricing' %}"
+
+       >
         {% csrf_token %}
 
        
@@ -174,16 +180,20 @@
                         <header>
                             <img src="{% static 'images/sofa.jpg' %}" alt="Gamming Mouse" />
                         </header>
+                        
                         <div class="content">
-                          <h1><b>Sofa Sets</b></h1>
-                          Specify number of sofa sets
+                          
+                          <h1><b id="title">{{serviceinfo}}</b></h1>
+                          
                         </div>
+                        
+                        
                         <footer class="content">
                           <span class="qt-minus">-</span>
                           <span class="qt"> 1</span>
                           <span class="qt-plus">+</span>
-                          <h2 class="full-price">15.50 /=</h2>
-                          <h2 class="price">15.50</h2>
+                          <h2 class="full-price">{{pricing}}/=</h2>
+                          <h2 id="pricing" class="price">{{pricing}}</h2>
                         </footer>
                       </article>
                     </section>
@@ -379,6 +389,7 @@
 
 <!--custom JS-->
 <script src="{% static 'mail-js.js' %}"></script> 
+<script src="{% static 'js/script.js' %}"></script> 
 <script src="{% static 'main.js' %}"></script>
 
 

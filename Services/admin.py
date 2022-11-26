@@ -33,13 +33,20 @@ class TechnicianVariationAdminInlines(admin.TabularInline):
     model = TechnicianVariation
     list_display = ('category', 'variation_category', 'variation_value',)
 
+class ExtraServiceAdminInline(admin.TabularInline):
+    model = ExtraServiceInfo
+    list_display = ('name', 'description', 'category','unit_charges')
+    
 class ServiceCategoryAdmin(admin.ModelAdmin):
-    list_display = ("name", "description", "code")
-    inlines = [ServiceVariationAdminInlines, TechnicianVariationAdminInlines]
+    list_display = ("name", "description", "code",'price')
+    list_editable = ('price',)
+    inlines = [ExtraServiceAdminInline]
     list_filter = (
         'name',
     )
-
+class ExtraServiceAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description', 'category','unit_charges')
+    list_editable = ('unit_charges')
 class ServiceApplicationAdmin(admin.ModelAdmin):
     list_display = ("submission_number", "type", "category")
 

@@ -86,7 +86,7 @@ class ServiceCategory(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(default="")
     price = models.IntegerField(null=True, blank=True)
-    #image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
     code = models.CharField(max_length=100, default="")
     type = models.ForeignKey(ServiceType,blank=True, null=True, related_name="categories", on_delete=models.PROTECT)
     slug = None
@@ -113,9 +113,12 @@ class Consultant(models.Model):
         return self.name
 
 class ExtraServiceInfo(models.Model):
+    name = models.CharField(max_length=100, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
     category = models.ForeignKey(ServiceCategory, null=True, blank=True, on_delete=models.CASCADE)
-    price = models.IntegerField(null=True, blank=True)
     unit_charges = models.IntegerField(null=True, blank=True)
+    def __str__(self):
+        return self.name
 
 
 class Service(models.Model):  
@@ -137,6 +140,15 @@ class Service(models.Model):
         blank=True,
         )
     service_date = models.DateField(null=True, blank=True)
+    serviceinfo = models.ForeignKey(
+        ExtraServiceInfo,
+        blank=True,
+        null=True,
+        on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return self.category
 
 class ServiceVariationManager(models.Manager):
     def service(self):

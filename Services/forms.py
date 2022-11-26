@@ -66,6 +66,7 @@ class ServiceForm(forms.ModelForm):
             'category',
             'consultant',
             'service_date',
+            'serviceinfo'
         )
 
     def __init__(self, *args, **kwargs):
@@ -131,6 +132,11 @@ class ServiceForm(forms.ModelForm):
             'class':'datepicker-here form-control',
             'placeholder':'Select Multiple Dates',
         })
+        self.fields['serviceinfo'].widget.attrs.update({
+            'type':'text',
+            'name':'serviceinfo',
+            'id':'service-info',
+        })
 
         self.fields['category'].queryset = ServiceCategory.objects.none()
 
@@ -145,5 +151,18 @@ class ServiceForm(forms.ModelForm):
 
         elif self.instance.id:
             self.fields['category'].queryset = self.instance.type.category_set.order_by('name')
+
+
+        if "category" in self.data:
+            try:
+                category_id = int(self.data.get("category"))
+                print(category_id)
+                self.fields['serviceinfo'].queryset = ExtraServiceInfo.objects.filter(category_id=category_id).order_by('name')
+
+            except (ValueError, TypeError):
+                pass
+
+        elif self.instance.id:
+           self.fields['serviceinfo'].queryset = self.instance.type.serviceinfo_set.order_by('name')
 
         

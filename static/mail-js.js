@@ -191,5 +191,50 @@ $(document).ready(function () {
 		});
 	  });
 
+	  $("#service").change(function() {
+		var url = $("#example-form").attr("data-extra-info-url");
+		var serviceId = $(this).val();
+	
+		$.ajax({
+		  url: url,
+		  data: {
+			'service':serviceId
+		  },
+		  success: function(data){
+			$("#title").html(data);
+		  }
+		});
+	  });
+	  $("#service").change(function() {
+		var url = $("#example-form").attr("data-pricing-url");
+		var serviceId = $(this).val();
+	
+		$.ajax({
+		  url: url,
+		  data: {
+			'service':serviceId
+		  },
+		  success: function(data){
+			$("#pricing").html(data);
+		  }
+		});
+	  });
+	  $("#service").change(function() {
+		var url = $("#example-form").attr("data-name-url");
+		var serviceId = $(this).val();
+	
+		$.ajax({
+		  url: url,
+		  data: {
+			'service':serviceId
+		  },
+		  success: function(data){
+			$("#name").html(data);
+		  }
+		});
+	  });
+
+
+
 
 })
