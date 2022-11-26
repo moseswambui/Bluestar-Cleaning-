@@ -65,15 +65,16 @@ def load_pricing(request):
     }
     return render(request, "extra_fields_pricing.html", context)
 
-def load_name(request):
+def load_category_image(request):
     category_id = request.GET.get("service")
-    name = ExtraServiceInfo.objects.filter(category_id=category_id).order_by("name")
-    print(name)
-    for serv in name:
-        print(serv.name)
+    image= ExtraServiceInfo.objects.filter(category_id=category_id).order_by("name")
+    print(image)
+    for serv in image:
+        print(serv.category.image)
     context = {
-        'name':name
+        'image':image
     }
-    return render(request, "extra_fields_name.html", context)
+    return render(request, "category_image.html", context)
+
 
 

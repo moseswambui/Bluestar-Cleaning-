@@ -44,6 +44,7 @@
         data-pricing-url ="{% url 'ajax_load_pricing' %}"
         data-name-url ="{% url 'ajax_load_pricing' %}"
         data-consultants-url = "{% url 'ajax_load_consultants' %}"
+        category-image-url  = "{% url 'ajax_load_category_image' %}"
 
        >
         {% csrf_token %}
@@ -66,7 +67,7 @@
           <!--step 1 body-->
           <section> 
             <!--header logo-->
-            <div class="brand-wrapper"> <img src="{% static 'images/logo.png' %}" alt="Bluestar Logo" class="logo"> </div>
+            <div id="category-image" class="brand-wrapper"> <img src="{% static 'images/logo.png' %}" alt="Bluestar Logo" class="logo"> </div>
             <div class="row">
               <div class="col-xl-6"> 
                 <!--heading step 1-->
@@ -178,8 +179,8 @@
                   <div class="container">
                     <section id="cart">
                       <article class="product">
-                        <header>
-                            <img src="{% static 'images/sofa.jpg' %}" alt="Gamming Mouse" />
+                        <header id="category-image">
+                            <img src="{{image}}" alt="Gamming Mouse" />
                         </header>
                         
                         <div class="content">

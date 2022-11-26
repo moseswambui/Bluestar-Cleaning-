@@ -219,7 +219,7 @@ $(document).ready(function () {
 		  }
 		});
 	  });
-	  $("#service").change(function() {
+	  $("#category").change(function() {
 		var url = $("#example-form").attr("data-consultants-url");
 		var typeId = $(this).val();
 	
@@ -230,6 +230,21 @@ $(document).ready(function () {
 		  },
 		  success: function(data){
 			$("#consultant").html(data);
+		  }
+		});
+	  });
+
+	  $("#service").change(function() {
+		var url = $("#example-form").attr("category-image-url");
+		var serviceId = $(this).val();
+	
+		$.ajax({
+		  url: url,
+		  data: {
+			'service':serviceId
+		  },
+		  success: function(data){
+			$("#category-image").html(data);
 		  }
 		});
 	  });
