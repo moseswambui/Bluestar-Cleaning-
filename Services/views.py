@@ -6,8 +6,16 @@ from django.views.generic import ListView, CreateView, UpdateView
 from django.urls import reverse_lazy
 
 def Index(request):
-    form = ServiceForm()
-   
+    form = ServiceForm(request.POST or None)
+
+    if request.is_ajax():
+        print("ajax request")
+        if form.is_valid():
+            print('form is valid')
+            form.save()
+
+        else:
+            print('form is not valid')
     
     context = {
         'form':form,
@@ -74,7 +82,7 @@ def load_category_image(request):
     context = {
         'image':image
     }
-    return render(request, "category_image.html", context)
+    return render(request, "category_image.html", context) 
 
 
 

@@ -139,15 +139,17 @@ $(document).ready(function () {
 			var field5 = $('#category').val();
 			var field6 = $('#service').val();
 			var field7 = $('#consultant').val();
-			var field8 = $('#dp').val();
-			var field9 = $('#message1').val();
-			var field10 = $('input[name="pay"]:checked').val();
-			var field11 = $('#payp').val();
-			var field12 = $('#qrcode').val();
-
+			//var field8 = $('#dp').val();
+			//var field9 = $('#message1').val();
+			//var field10 = $('input[name="pay"]:checked').val();
+			//var field11 = $('#payp').val();
+			//var field12 = $('#qrcode').val();
+			const csrf = document.getElementsByName('csrfmiddlewaretoken')
+			console.log('csrf', csrf[0].value)
 			$.ajax({
-				url: '{% url index %}',	//linking mail file
+				url: '',	//linking mail file
 				data: {
+					"csrfmiddlewaretoken":csrf[0].value,
 					"fname": field1,	//pass firstname to mail
 					"lname": field2,
 					"pnumber": field3,
@@ -155,15 +157,20 @@ $(document).ready(function () {
 					"category": field5,
 					"service": field6,
 					"consultant": field7,
-					"dp": field8,
-					"message1": field9,
-					"pay": field10,
-					"payp": field11,
-					"qrcode": field12
+					//"dp": field8,
+					//"message1": field9,
+					//"pay": field10,
+					//"payp": field11,
+					//"qrcode": field12
 				},
 				type: "POST",
-				dataType: "xml",
-				success: function (data) {},
+				//dataType: "xml",
+				success: function (data) {
+					console.log(data)
+				},
+				error: function(error){
+					console.log(error)
+				}
 
 			});
 			
@@ -235,7 +242,7 @@ $(document).ready(function () {
 	  });
 
 	  $("#service").change(function() {
-		var url = $("#example-form").attr("category-image-url");
+		var url = $("#example-form").attr("src","category-image-url");
 		var serviceId = $(this).val();
 	
 		$.ajax({
