@@ -228,7 +228,7 @@
          
             <div class="form-group">
               <label for="message1" class="">Note</label>
-              <textarea class="form-control" name="message1" id="message1" placeholder="Anything else?"></textarea>
+              {{form.message}}
             </div>
             <p class="card-footer-text">Specify details for the selected service category. <br/> Leave a note, for special instructions or requests </p>
            
@@ -256,7 +256,7 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="custom-control custom-radio mb-3">
-                  {{form.pay}}
+                  {{ form.pay }}
                   <label class="custom-control-label" for="customRadio1"> Pay during visit. </label>
                 </div>
                 <!-- <div class="custom-control custom-radio mb-3">

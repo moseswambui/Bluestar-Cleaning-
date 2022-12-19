@@ -68,6 +68,7 @@ class ServiceForm(forms.ModelForm):
             'service_date',
             'serviceinfo',
             "pay",
+            'message',
         )
 
     def __init__(self, *args, **kwargs):
@@ -135,10 +136,14 @@ class ServiceForm(forms.ModelForm):
             'data-date-format':'dd M yyyy',
             'data-language':'en',
         })
+        self.fields['message'].widget.attrs.update({
+            'type':'textarea',
+            'name':'message1',
+            'id':'message1',
+            'placeholder':'Enter your message here'
+        })
         self.fields['serviceinfo'].widget.attrs.update({
-            'type':'text',
-            'name':'serviceinfo',
-            'id':'service-info',
+            
         })
 
         self.fields['category'].queryset = ServiceCategory.objects.none()

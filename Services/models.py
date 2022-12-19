@@ -146,6 +146,7 @@ class Service(models.Model):
         null=True,
         on_delete=models.CASCADE
     )
+    message = models.TextField(null=True, blank=True)
     pay = models.CharField(max_length=200, default="Pay During Visit")
 
     def __str__(self):
