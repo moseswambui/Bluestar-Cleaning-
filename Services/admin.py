@@ -53,6 +53,9 @@ class ServiceApplicationAdmin(admin.ModelAdmin):
 class AppointmentOrderAdmin(admin.ModelAdmin):
     list_display = ('category', 'service', 'appointment_date')
 
+class ServiceAdmin(admin.ModelAdmin):
+    list_display = ('first_name', 'type', 'category', 'consultant')
+
 admin.site.register(FormField, FormFieldAdmin)
 admin.site.register(Form, FormAdmin)
 admin.site.register(FormSection, FormSectionAdmin)

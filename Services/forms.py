@@ -66,7 +66,8 @@ class ServiceForm(forms.ModelForm):
             'category',
             'consultant',
             'service_date',
-            'serviceinfo'
+            'serviceinfo',
+            "pay",
         )
 
     def __init__(self, *args, **kwargs):
@@ -118,12 +119,12 @@ class ServiceForm(forms.ModelForm):
             'name':'consultant',
             'id':'consultant',
         })
-        self.fields['service_date'].widget.attrs.update({
-            'type':'text',
-            'name':'dp',
-            'id':'dp',
-            'class':'datepicker-here form-control',
-            'placeholder':'Select Multiple Dates',
+        self.fields['pay'].widget.attrs.update({
+            'type':'radio',
+            'name':'pay',
+            'id':'customRadio1',
+            'class':'custom-control-input',
+            'value':'During Visit',
         })
         self.fields['service_date'].widget.attrs.update({
             'type':'text',
@@ -131,6 +132,8 @@ class ServiceForm(forms.ModelForm):
             'id':'dp',
             'class':'datepicker-here form-control',
             'placeholder':'Select Multiple Dates',
+            'data-date-format':'dd M yyyy',
+            'data-language':'en',
         })
         self.fields['serviceinfo'].widget.attrs.update({
             'type':'text',

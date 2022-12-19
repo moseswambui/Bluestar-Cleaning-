@@ -1,6 +1,7 @@
 // JavaScript Document
 //Wizard Init
 //FOR WIZARD AND VALIDATIONS
+
 $(document).ready(function () {
 	'use strict';
 	//defining form
@@ -174,6 +175,81 @@ $(document).ready(function () {
 		}
 
 	});
+	$("#category").change(function() {
+		var url = $("#example-form").attr("data-categories-url");
+		var typeId = $(this).val();
+		console.log(typeId)
+	
+		$.ajax({
+		  url: url,
+		  data: {
+			'type':typeId
+		  },
+		  success: function(data){
+			$("#service").html(data);
+		  }
+		});
+	  });
+
+	  $("#service").change(function() {
+		var url = $("#example-form").attr("data-extra-info-url");
+		var serviceId = $(this).val();
+	
+		$.ajax({
+		  url: url,
+		  data: {
+			'service':serviceId
+		  },
+		  success: function(data){
+			$("#title").html(data);
+		  }
+		});
+	  });
+	  $("#service").change(function() {
+		var url = $("#example-form").attr("data-pricing-url");
+		var serviceId = $(this).val();
+	
+		$.ajax({
+		  url: url,
+		  data: {
+			'service':serviceId
+		  },
+		  success: function(data){
+			$("#pricing").html(data);
+		  }
+		});
+	  });
+	  $("#category").change(function() {
+		var url = $("#example-form").attr("data-consultants-url");
+		var typeId = $(this).val();
+	
+		$.ajax({
+		  url: url,
+		  data: {
+			'type':typeId
+		  },
+		  success: function(data){
+			$("#consultant").html(data);
+		  }
+		});
+	  });
+
+	  $("#service").change(function() {
+		var url = $("#example-form").attr("category-image-url");
+		var serviceId = $(this).val();
+	
+		$.ajax({
+		  url: url,
+		  data: {
+			'service':serviceId
+		  },
+		  success: function(data){
+			$("#category-image").html(data);
+		  }
+		});
+	  });
+
+
 
 
 })

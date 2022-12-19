@@ -143,7 +143,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="dp">I'm available on or after</label>
-                <input type="text" name="dp" class="datepicker-here form-control" data-language="en" id="dp" placeholder="Select Multiple Dates" data-date-format="dd M yyyy" required>
+                {{form.service_date}}
               </div>
             </div>
          
@@ -256,7 +256,7 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="custom-control custom-radio mb-3">
-                  <input type="radio" id="customRadio1" name="pay" class="custom-control-input" value="During Visit" required>
+                  {{form.pay}}
                   <label class="custom-control-label" for="customRadio1"> Pay during visit. </label>
                 </div>
                 <!-- <div class="custom-control custom-radio mb-3">
@@ -339,8 +339,9 @@
               <label class="custom-control-label" for="tnc">I agree to the terms and conditions.</label>
             </div>
           </section>
-			
+          
         </div>
+        
 		  
       </form>
 		
