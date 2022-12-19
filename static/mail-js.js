@@ -32,18 +32,18 @@ $(document).ready(function () {
 			confirm: {
 				equalTo: "#password"
 			},
-			pay: {
-				required: true,
-			},
-			payp: {
-				required: '#customRadio2[value="Paypal"]:checked',
-			},
-			qrcode: {
-				required: '#customRadio3[value="Google-Pay"]:checked',
-			},
-			tnc: {
-				required: true,
-			},
+			//pay: {
+				//required: true,
+			//},
+			//payp: {
+				//required: '#customRadio2[value="Paypal"]:checked',
+			//},
+			//qrcode: {
+				//required: '#customRadio3[value="Google-Pay"]:checked',
+			//},
+			//tnc: {
+			//	required: true,
+			//},
 		},
 
 		//message for validation
@@ -70,22 +70,22 @@ $(document).ready(function () {
 			"consultant": {
 				required: "Select consultant."
 			},
-			"dp": {
-				required: "Select dates."
-			},
-			"pay": {
-				required: "Select atleast one mode of payment."
-			},
-			"payp": {
-				required: "Paypal address is required.",
-				email: "Please enter a valid email ID."
-			},
-			"qrcode": {
-				required: "Send us your transaction ID."
-			},
-			"tnc": {
-				required: "Accept terms and conditions."
-			},
+			//"dp": {
+			//	required: "Select dates."
+			//},
+			//"pay": {
+			//	required: "Select atleast one mode of payment."
+			//},
+			//"payp": {
+			//	required: "Paypal address is required.",
+			//	email: "Please enter a valid email ID."
+			//},
+			//"qrcode": {
+				//required: "Send us your transaction ID."
+			//},
+			// "tnc": {
+			// 	required: "Accept terms and conditions."
+			// },
 		},
 
 
@@ -132,31 +132,43 @@ $(document).ready(function () {
 			});
 
 			//Ajax Example
-			var field1 = $('#fname').val();		//taking values from firstname input
-			var field2 = $('#lname').val();
-			var field3 = $('#pnumber').val();
-			var field4 = $('#email').val();
-			var field5 = $('#category').val();
-			var field6 = $('#service').val();
-			var field7 = $('#consultant').val();
+			//var field1 = $('#fname').val();		//taking values from firstname input
+			//var field2 = $('#lname').val();
+			//var field3 = $('#pnumber').val();
+			//var field4 = $('#email').val();
+			//var field5 = $('#category').val();
+			//var field6 = $('#service').val();
+			//var field7 = $('#consultant').val();
 			//var field8 = $('#dp').val();
 			//var field9 = $('#message1').val();
 			//var field10 = $('input[name="pay"]:checked').val();
 			//var field11 = $('#payp').val();
 			//var field12 = $('#qrcode').val();
+			const firstName = document.getElementById('fname')
+			const lastName = document.getElementById('lname')
+			const emailAddress = document.getElementById('email')
+			const phoneNumber = document.getElementById('pnumber')
+			const type = document.getElementById('category')
+			const category = document.getElementById('service')
+			const consultant = document.getElementById('consultant')
+			const serviceDate = document.getElementById('dp')
+			const pay = document.getElementById('customRadio1')
+			
 			const csrf = document.getElementsByName('csrfmiddlewaretoken')
 			console.log('csrf', csrf[0].value)
 			$.ajax({
 				url: '',	//linking mail file
 				data: {
 					"csrfmiddlewaretoken":csrf[0].value,
-					"fname": field1,	//pass firstname to mail
-					"lname": field2,
-					"pnumber": field3,
-					"email": field4,
-					"category": field5,
-					"service": field6,
-					"consultant": field7,
+					"fname": firstName.value,	//pass firstname to mail
+					"lname": lastName.value,
+					"pnumber": phoneNumber.value,
+					"email": emailAddress.value,
+					"type": type.value,
+					"category": category.value,
+					"consultant": consultant.value,
+					'dp':serviceDate.value,
+					'pay':pay.value,
 					//"dp": field8,
 					//"message1": field9,
 					//"pay": field10,

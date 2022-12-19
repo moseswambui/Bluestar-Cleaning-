@@ -11,11 +11,12 @@ def Index(request):
     if request.is_ajax():
         print("ajax request")
         if form.is_valid():
-            print('form is valid')
+            print(" form is valid ")
             form.save()
 
         else:
             print('form is not valid')
+            print(form.errors)
     
     context = {
         'form':form,

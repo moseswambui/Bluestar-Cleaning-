@@ -80,8 +80,6 @@ class ServiceType(models.Model):
     def __str__(self):
         return self.name
 
-
-
 class ServiceCategory(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(default="")
@@ -120,7 +118,9 @@ class ExtraServiceInfo(models.Model):
     def __str__(self):
         return self.name
 
-
+PAYMENT_CHOICES = (
+    ('Pay During Visit', 'Pay during Visit'),
+)
 class Service(models.Model):  
     first_name = models.CharField(max_length=250, null=True, blank=True)
     last_name = models.CharField(max_length=250, null=True, blank=True)
@@ -146,9 +146,10 @@ class Service(models.Model):
         null=True,
         on_delete=models.CASCADE
     )
+    pay = models.CharField(max_length=200, default="Pay During Visit")
 
     def __str__(self):
-        return self.category
+        return str(self.category)
 
 class ServiceVariationManager(models.Manager):
     def service(self):
