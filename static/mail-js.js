@@ -100,7 +100,7 @@ $(document).ready(function () {
 		
 		//labels
 		labels: {
-			finish: "Submit",
+			// finish: "Submit",
 			next: "Next",
 			previous: "Back",
 		},

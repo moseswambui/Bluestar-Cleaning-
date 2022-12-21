@@ -5,10 +5,13 @@ from . models import *
 from django.views.generic import ListView, CreateView, UpdateView
 from django.urls import reverse_lazy
 
+def is_ajax(request):
+    return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+
 def Index(request):
     form = ServiceForm(request.POST or None)
 
-    if request.is_ajax():
+    if is_ajax(request):
         print("ajax request")
         if form.is_valid():
             print(" form is valid ")
@@ -20,7 +23,6 @@ def Index(request):
     
     context = {
         'form':form,
-        
     }
 
     return render(request, 'index.html', context)
