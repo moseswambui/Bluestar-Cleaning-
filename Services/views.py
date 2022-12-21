@@ -9,18 +9,51 @@ def is_ajax(request):
     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
 
 def Index(request):
-    form = ServiceForm(request.POST or None)
-
-    if is_ajax(request):
-        print("ajax request")
+    print('in index form')
+    if request.method == "POST":
+        print('request is post')
+        form = ServiceForm(request.POST)
         if form.is_valid():
-            print(" form is valid ")
-            form.save()
-
+            print('form is valid')
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            phone_number = form.cleaned_data['phone_number']
+            email_address = form.cleaned_data['email_address']
+            type = form.cleaned_data['type']
+            category = form.cleaned_data['category']
+            consultant = form.cleaned_data['consultant']
+            
+            message = form.cleaned_data['message']
+            
+            service_details =Service.objects.create(
+                first_name = first_name,
+                last_name = last_name,
+                phone_number = phone_number,
+                email_address = email_address,
+                type = type,
+                category = category,
+                consultant = consultant,
+               
+                message = message
+            )
+            service_details.save()
+            print ("form is saved")
         else:
             print('form is not valid')
             print(form.errors)
+    else:
+        form = ServiceForm
+    #if is_ajax(request):
+        #print("ajax request")
+        #if form.is_valid():
+            #print(" form is valid ")
+            #form.save()
+
+        #else:
+            #print('form is not valid')
+            #print(form.errors)
     
+
     context = {
         'form':form,
     }

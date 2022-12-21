@@ -65,7 +65,7 @@ class ServiceForm(forms.ModelForm):
             'type',
             'category',
             'consultant',
-            'service_date',
+            
             'serviceinfo',
             "pay",
             'message',
@@ -127,15 +127,7 @@ class ServiceForm(forms.ModelForm):
             'class':'custom-control-input',
             'value':'During Visit',
         })
-        self.fields['service_date'].widget.attrs.update({
-            'type':'text',
-            'name':'dp',
-            'id':'dp',
-            'class':'datepicker-here form-control',
-            'placeholder':'Select Multiple Dates',
-            'data-date-format':'dd M yyyy',
-            'data-language':'en',
-        })
+        
         self.fields['message'].widget.attrs.update({
             'type':'textarea',
             'name':'message1',

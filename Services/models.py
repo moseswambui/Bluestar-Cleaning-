@@ -139,7 +139,7 @@ class Service(models.Model):
         null=True,
         blank=True,
         )
-    service_date = models.DateField(null=True, blank=True)
+    service_date = models.DateField(auto_now_add=True)
     serviceinfo = models.ForeignKey(
         ExtraServiceInfo,
         blank=True,

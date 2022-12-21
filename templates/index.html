@@ -39,7 +39,7 @@
     <div class="card-body"> 
       
       <!--main content-->
-      <form method="post" id="example-form" 
+      <form method="post" action="{% url 'index' %}" id="example-form" 
         data-categories-url="{% url 'ajax_load_categories' %}"
         data-extra-info-url="{% url 'ajax_load_extra_info' %}"
         data-pricing-url ="{% url 'ajax_load_pricing' %}"
@@ -146,7 +146,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="dp">I'm available on or after</label>
-                {{form.service_date}}
+                <input type="text" name="dp" class="datepicker-here form-control" data-language="en" id="dp" placeholder="Select Multiple Dates" data-date-format="dd M yyyy" required>
               </div>
             </div>
          
