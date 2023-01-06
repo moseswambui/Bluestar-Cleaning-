@@ -65,7 +65,7 @@ class ServiceForm(forms.ModelForm):
             'type',
             'category',
             'consultant',
-            
+            'date_string',
             'serviceinfo',
             "pay",
             'message',
@@ -120,6 +120,16 @@ class ServiceForm(forms.ModelForm):
             'name':'consultant',
             'id':'consultant',
         })
+
+        self.fields['date_string'].widget.attrs.update({
+            'type':'text',
+            'name':'dp',
+            'id':'dp',
+            'data-language':'en',
+            'placeholder':"Select Multiple Dates",
+            'data-date-format':'dd M yyyy'
+        })
+
         self.fields['pay'].widget.attrs.update({
             'type':'radio',
             'name':'pay',

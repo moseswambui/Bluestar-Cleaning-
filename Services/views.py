@@ -22,7 +22,7 @@ def Index(request):
             type = form.cleaned_data['type']
             category = form.cleaned_data['category']
             consultant = form.cleaned_data['consultant']
-            
+            date_string = form.cleaned_data['date_string']
             message = form.cleaned_data['message']
             
             service_details =Service.objects.create(
@@ -31,6 +31,7 @@ def Index(request):
                 phone_number = phone_number,
                 email_address = email_address,
                 type = type,
+                date_string = date_string,
                 category = category,
                 consultant = consultant,
                
