@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import JsonResponse
 from .forms import AppointmentOrderForm,ServiceForm
 from . models import *
@@ -38,6 +38,7 @@ def Index(request):
             )
             service_details.save()
             print ("form is saved")
+            return redirect('index')
         else:
             print('form is not valid')
             print(form.errors)
