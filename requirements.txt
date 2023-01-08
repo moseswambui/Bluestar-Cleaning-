@@ -1,5 +1,4 @@
 asgiref==3.5.2
-backports.zoneinfo==0.2.1
 Django==3.2
 django-smart-selects==1.5.4
 django-utils-six==2.0

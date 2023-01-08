@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>INVOICE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <!-- External CSS libraries -->
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css">
+
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" >
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900">
+
+    <!-- Custom Stylesheet -->
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- Invoice 2 start -->
+<div class="invoice-2 invoice-content">
+    <div class="container ">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="invoice-inner-2">
+                    <div class="invoice-info" id="invoice_wrapper">
+                        <div class="invoice-inner">
+                            <div class="invoice-top">
+                                <div class="row align-items-center">
+                                    <div class="col-sm-6 invoice-name">
+                                        <h4 class="inv-header-2">Receipt: #94</h4>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="title-logo text-end">
+                                           
+                                            <p>BLUESTAR, Professional Cleaning Places<br>FPhone 07000 000 000 </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="invoice-center">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <address class="address-info">
+                                            <p class="strong">Date</p>
+                                            <p>Receipt Date: 21 Sep 2021</p>
+                                            <p>Cleaning Date Date: 21 Sep 2021</p>
+                                        </address>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <address class="address-info">
+                                            <p class="strong">Receipt To</p>
+                                            <p class="invo-addr-1">
+                                                
+                                                moseswambui@gmail.com <br/>
+                                                07458945945
+                                            </p>
+                                        </address>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <address class="address-info ai2 text-end">
+                                            <p class="strong">From</p>
+                                            <p class="invo-addr-1">
+                                                Bluestar <br/>
+                                                bluestar@billing.com <br/>
+                                                Bangladesh ,Kasarani<br/>
+                                            </p>
+                                        </address>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-summary">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4>Order summary</h4>
+                                        <div class="table-responsive">
+                                            <table class="table invoice-table">
+                                                <thead class="bg-active">
+                                                <tr>
+                                                    <th>Service Type</th>
+                                                    <th class="text-center">Service Category</th>
+                                                    <th class="text-center">Consultant</th>
+                                                    <th class="text-right">Order Amount</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="item-desc-1">
+                                                            <span>BS-200</span>
+                                                            <small>Customize web application</small>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">$10.99</td>
+                                                    <td class="text-center">1</td>
+                                                    <td class="text-right">$10.99</td>
+                                                </tr>
+                                               
+                                               
+                                               
+                                                
+                                                
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="account-transfer">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="bank-transfer">
+                                            <h3 class="inv-title-1">Order Details</h3>
+                                            <ul class="bank-transfer-list-1">
+                                                <li><strong>Name:</strong>Syamsuddin</li>
+                                                <li><strong>Phone Number:</strong>1234567890934</li>
+                                                <li><strong>id:</strong>C0032UK</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="total-amount text-end">
+                                            <h3 class="inv-title-1">Total Amount</h3>
+                                            <h1>$795.99</h1>
+                                            <p class="mb-0">Taxes Included</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="note">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h4 class="inv-title-1">Notes</h4>
+                                        <p class="text-muted">We really appreciate your business and if there's anything else we can do, please let us know! Also, should you need us to add VAT or anything else to this order!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="invoice-btn-section clearfix d-print-none">
+                        <a href="javascript:window.print()" class="btn btn-lg btn-print">
+                            <i class="fa fa-print"></i> Print Invoice
+                        </a>
+                        <a id="invoice_download_btn" class="btn btn-lg btn-download">
+                            <i class="fa fa-download"></i> Download Invoice
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Invoice 2 end -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jspdf.min.js"></script>
+<script src="assets/js/html2canvas.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
