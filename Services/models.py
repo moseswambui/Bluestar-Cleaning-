@@ -140,8 +140,8 @@ class Service(models.Model):
         blank=True,
         )
     service_date = models.DateField(auto_now_add=True, blank=True, null=True)
-    date_string = models.CharField(max_length=50, blank=True, null=True)
-    cleaning_date = models.DateTimeField(blank=True, null=True)
+    service_date_string = models.DateField(blank=True, null=True)
+    order_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     serviceinfo = models.ForeignKey(
         ExtraServiceInfo,
         blank=True,

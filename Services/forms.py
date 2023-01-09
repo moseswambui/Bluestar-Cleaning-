@@ -65,7 +65,7 @@ class ServiceForm(forms.ModelForm):
             'type',
             'category',
             'consultant',
-            'date_string',
+            'service_date_string',
             'serviceinfo',
             "pay",
             'message',
@@ -121,13 +121,12 @@ class ServiceForm(forms.ModelForm):
             'id':'consultant',
         })
 
-        self.fields['date_string'].widget.attrs.update({
-            'type':'text',
-            'name':'dp',
-            'id':'dp',
-            'data-language':'en',
-            'placeholder':"Select Multiple Dates",
-            'data-date-format':'dd M yyyy'
+        self.fields['service_date_string'].widget.attrs.update({
+            'type':'date',
+            'name':'service-date',
+            'id':'service-date',
+            'min':"2023-01-01",
+            'max':'2024-01-01'
         })
 
         self.fields['pay'].widget.attrs.update({

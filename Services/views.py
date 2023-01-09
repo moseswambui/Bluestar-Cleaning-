@@ -6,11 +6,13 @@ from django.views.generic import ListView, CreateView, UpdateView
 from django.urls import reverse_lazy
 from django.core.mail import send_mail
 from django.conf import settings
+from datetime import date
 def is_ajax(request):
     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
 
 def Index(request):
-    print('in index form')
+    today = date.today()
+    print(today)
     if request.method == "POST":
         print('request is post')
         form = ServiceForm(request.POST)
@@ -23,16 +25,17 @@ def Index(request):
             type = form.cleaned_data['type']
             category = form.cleaned_data['category']
             consultant = form.cleaned_data['consultant']
-            date_string = form.cleaned_data['date_string']
+            service_date_string = form.cleaned_data['service_date_string']
             message = form.cleaned_data['message']
             
+            print(service_date_string)
             service_details =Service.objects.create(
                 first_name = first_name,
                 last_name = last_name,
                 phone_number = phone_number,
                 email_address = email_address,
                 type = type,
-                date_string = date_string,
+                service_date_string = service_date_string,
                 category = category,
                 consultant = consultant,
                
@@ -42,7 +45,7 @@ def Index(request):
 
             ### Django Send Receipt Email
             subject = "Bluestar Order Confirmation"
-            message = f'Hello {first_name}. your Order for -{type.name} Service -- {category.name} Has Been Confirmed. Our employee - {consultant} Will Fulfill your Order on the Appointed Date. Thank You!'
+            message = f'Hello {first_name}. Your Order on Date- {today}  for Service - {type.name} Category- {category.name} Has Been Confirmed. Our employee - {consultant} Will Fulfill your Order on the Appointed Date - {service_date_string}. Thank You!'
             email_from = settings.EMAIL_HOST_USER
             recipient = [email_address,]
             send_mail(subject, message, email_from, recipient_list=recipient)
@@ -67,6 +70,7 @@ def Index(request):
 
     context = {
         'form':form,
+        'today':today,
     }
 
     return render(request, 'index.html', context)

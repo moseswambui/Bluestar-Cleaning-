@@ -54,7 +54,7 @@ class AppointmentOrderAdmin(admin.ModelAdmin):
     list_display = ('category', 'service', 'appointment_date')
 
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'type', 'category','cleaning_date', 'consultant')
+    list_display = ('first_name', 'type', 'category','order_date', 'consultant')
 
 admin.site.register(FormField, FormFieldAdmin)
 admin.site.register(Form, FormAdmin)
