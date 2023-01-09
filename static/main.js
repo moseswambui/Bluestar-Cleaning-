@@ -77,7 +77,7 @@ $(document).ready(function () {
 	});
 
 	$('#consultant').change(function () {
-		$('#summaryconsultant, #xyz').text($(this).val());
+		$('#summaryconsultant').text($(this).val());
 	});
 
 	$('#message1').change(function () {
