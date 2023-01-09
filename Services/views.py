@@ -4,7 +4,8 @@ from .forms import AppointmentOrderForm,ServiceForm
 from . models import *
 from django.views.generic import ListView, CreateView, UpdateView
 from django.urls import reverse_lazy
-
+from django.core.mail import send_mail
+from django.conf import settings
 def is_ajax(request):
     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
 
@@ -38,6 +39,14 @@ def Index(request):
                 message = message
             )
             service_details.save()
+
+            ### Django Send Receipt Email
+            subject = "Bluestar Order Confirmation"
+            message = f'Hello {first_name}. your Order for -{type.name} Service -- {category.name} Has Been Confirmed. Our employee - {consultant} Will Fulfill your Order on the Appointed Date. Thank You!'
+            email_from = settings.EMAIL_HOST_USER
+            recipient = [email_address,]
+            send_mail(subject, message, email_from, recipient_list=recipient)
+            
             print ("form is saved")
             return redirect('index')
         else:
